@@ -16,6 +16,7 @@ include 'header.php';
     <link type="text/css" rel="stylesheet" href="css/loading.css" />
     <link type="text/css" rel="stylesheet" href="../dist/mmenu.css" />
     <link type="text/css" rel="stylesheet" href="./buttonn.css" />
+    <link type="text/css" rel="stylesheet" href="css/backtotop.css" />
 
     
     <!-- icon -->
@@ -79,7 +80,24 @@ include 'header.php';
     場地格局設置滿版 
     多設計一個scroll down button?
 -->
+<a id="button"></a>
+<script>
+var btn = $('#button');
 
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
+</script>
 
 <div id="frontpage">
         <div id="page">
