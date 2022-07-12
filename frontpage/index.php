@@ -121,6 +121,12 @@ public function test_function()
 
         ?>
 </div>
+<!-- /** @test */
+public function test_function()
+{
+    // assertions
+} -->
+
             <!-- 導覽列 -->
             <div id="header">
              
