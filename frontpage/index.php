@@ -13,6 +13,7 @@ include 'header.php';
 
     <!-- 導覽列 -->
     <link type="text/css" rel="stylesheet" href="css/demo.css" />
+    <link type="text/css" rel="stylesheet" href="css/loading.css" />
     <link type="text/css" rel="stylesheet" href="../dist/mmenu.css" />
     <link type="text/css" rel="stylesheet" href="./buttonn.css" />
 
@@ -79,6 +80,8 @@ include 'header.php';
     多設計一個scroll down button?
 -->
 
+
+<div id="frontpage">
         <div id="page">
             <br>
             <div id="search-menu">
@@ -93,8 +96,9 @@ include 'header.php';
                     <button id="popup-search-button" type="submit"  name="submit-search">
                     <i class="fas fa-search"></i></button></form>
               </div>
-          </div>
-
+              </div>
+         
+<!-- 搜尋用 -->
         
 <div class="article-container " id="frontpage" style="display: none">
     <?php
@@ -116,12 +120,14 @@ include 'header.php';
 
         ?>
 </div>
+
+
             <!-- 導覽列 -->
             <div id="header">
              
                 <a href="#menu"><span></span></a>
 
-                <a href="要前往的連結網址" id=logo><img class="logo" src="img/LOGO.png" alt="" width="100vh"></a>
+               <img class="logo" src="img/LOGO.png" alt="" width="100vh">
           
                 <embed class="icon" src="img/facebook.svg" width="40vh"/>
                 
@@ -161,11 +167,13 @@ include 'header.php';
         </script>
       
       </div>
-  
+
+     
 
         <!-- 內文 -->
 
         <!-- 輪播圖 -->
+        <div class="content">
         <div class="mt-5 mb-5 ">
         <main class="main-content">
             <section class="slideshow">
@@ -271,7 +279,8 @@ include 'header.php';
           </main>
           <br><br><br><br>
         </div>
-
+        </div>
+          </div>
         <!-- google地圖 -->
 
 <div id="content reveal">
@@ -284,12 +293,12 @@ include 'header.php';
      
     <h3 class="mb-4 nowrap fw-bold">定義空間<br>Def Space</h3>
     <p class="">
-      Def Space<br>
-      展覽/放映會/音樂演出/拍攝場景/課程講座/<br>
-      記者發表會/workshop/各式場地租借<br>
+      Studio Lab<br>
+      個人展覽 / 學生成發 / 攝影會 / 講座 / 市集<br>
+      辦公空間 / 工作坊 / 各式活動<br>
       <br>
-      Café/Bar<br>
-      咖啡/甜點/輕食/酒精飲料
+      Café<br>
+      咖啡飲料 / 輕食 / 甜點 
     <br></p>
   </span>
   
@@ -299,9 +308,11 @@ include 'header.php';
   
   <p class="">
     
-    A collaborative platform for art, <br>books and pop-up events.…and a coffee bar.<br>
+    <!-- A collaborative platform for art, <br>books and pop-up events.…and a coffee bar.<br> -->
+    A place that combines exhibition and café,<br>
+    Provide people with a artistic space.<br>
 <br>
-    一個透過編輯概念、<br>與各路人馬合作，出產各式形體與物件的計畫空間
+    一處結合展覽文化與飲食享受，<br>以藝文氣息在都市鬧區提供人們<br>一個呼吸的空檔。
   <br></p>
   
   <img class="mt-3" src="img/LOGO.png" alt="" width="120vh">
@@ -434,18 +445,19 @@ background-repeat: no-repeat;
 <div class="col-md-4">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="fw-bold">場地格局</h1>
+            <h1 class="fw-bold">場地租借</h1>
         </div>
         <div class="col-lg-12">
-            <h4>展區面積</h4>
-            <h4>展區數量</h4>
+            <h4>A展區｜功能活動區</h4>
+            <h4>B展區｜工作空間</h4>
+            <h4>C展區｜展覽空間</h4>
             <!-- <input type="button" onclick="project(this)" class="button  mealbtn btn btn-dark mt-1"
                               value="預約場勘"> -->
     <button class="learn-more">
     <span class="circle" aria-hidden="true">
     <span class="icon arrow"></span>
     </span>
-    <span class="button-text">預約場勘</span>
+    <span class="button-text">了解更多</span>
   </button>
         </div>
 
@@ -533,7 +545,10 @@ service@veneu.tw</p>
 </div>
 </div>
 </div>
+</div>
 
+<!-- loading頁 -->
+<div id="loading"></div>
 
 
             <!-- 頁尾 -->
@@ -563,7 +578,12 @@ service@veneu.tw</p>
         </footer>
         </div>
         </div>
+        
 
+        <!-- loading page -->
+
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- MDB -->
           <!-- Custom scripts -->
         <script src="jquery-1.9.1.min.js"></script>
@@ -577,7 +597,31 @@ service@veneu.tw</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
         
           <script type="text/javascript" src="./javascript.js"></script>
-       
+
+
+  <!-- loading page        -->
+  <script>
+  function onReady(callback) {
+    var intervalID = window.setInterval(checkReady, 500);
+
+    function checkReady() {
+        if (document.getElementsByTagName('body')[0] !== undefined) {
+            window.clearInterval(intervalID);
+            callback.call(this);
+        }
+    }
+}
+
+function show(id, value) {
+    document.getElementById(id).style.display = value ? 'block' : 'none';
+}
+
+onReady(function () {
+    show('page', true);
+    show('loading', false);
+});
+
+</script>
 
     </body>
 

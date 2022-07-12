@@ -186,7 +186,12 @@ include 'header.php';
     } 
     }
 ?>
-</div></div> <br> <br> <br>
+<input type ="button" class="btn btn-dark mx-3 mb-4" onclick="history.back()" value="回到上一頁"></input> 
+</div>
+
+</div>
+
+<br> <br> <br>
 
 
 
