@@ -78,6 +78,11 @@ include 'header.php';
     場地格局設置滿版 
     多設計一個scroll down button?
 -->
+<!-- /** @test */
+public function test_function()
+{
+    // assertions
+} -->
 
         <div id="page">
             <br>
