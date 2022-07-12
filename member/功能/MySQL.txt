@@ -1,0 +1,48 @@
+新增使用者
+INSERT INTO `member` (`firstname`, `lastname`, `email`, `password`, `birthdate`) VALUES ('王','宇','yu@gmail.com','bbb123456','1976-08-26');
+
+
+新增資料庫
+create DATABASE def_space DEFAULT CHARACTER set utf8;
+
+建立表格
+CREATE TABLE `member` (
+  `id` int(11) AUTO_INCREMENT,
+  `firstname` varchar(5) DEFAULT NULL,
+  `lastname` varchar(10) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+   `phoneNumber` char(10),
+  `password` varchar(50) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
+  `country` int(11) DEFAULT NULL,
+  `township` int(11) DEFAULT NULL,
+  `address` char(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8;
+
+
+新增內容
+INSERT INTO `member` (`firstname`, `lastname`, `email`,`phoneNumber`, `password`, `birthdate`) VALUES ('王','宇','yuwang@gmail.com','0976453168','aaa123456','1976-08-26');
+
+INSERT INTO `member` (`firstname`, `lastname`, `email`,`phoneNumber`, `password`, `birthdate`) VALUES ('王','小明','mingwang@gmail.com','0916416868','aaa123456','1996-10-06');
+
+INSERT INTO `member` (`firstname`, `lastname`, `email`,`phoneNumber`, `password`, `birthdate`) VALUES ('宋','國榮','kuorong@gmail.com','0911648735','aaa123456','1981-05-01');
+
+INSERT INTO `member` (`firstname`, `lastname`, `email`,`phoneNumber`, `password`, `birthdate`) VALUES ('林','冠宇','yulin@gmail.com','0944764853','aaa123456','2000-07-21');
+
+INSERT INTO `member` (`firstname`, `lastname`, `email`,`phoneNumber`, `password`, `birthdate`) VALUES ('黃','語軒','xuanhuang@gmail.com','0976485765','aaa123456','2000-02-24');
+
+INSERT INTO `member` (`firstname`, `lastname`, `email`,`phoneNumber`, `password`, `birthdate`) VALUES ('陳','依依','yichan@gmail.com','0911648576','aaa123456','2005-11-14');
+
+INSERT INTO `member` (`firstname`, `lastname`, `email`,`phoneNumber`, `password`, `birthdate`) VALUES ('陳','冠明','mingchen@gmail.com','0911468576','aaa123456','1996-04-14');
+
+建立訂單細節表格
+CREATE TABLE `order_detail` (
+  `id` int(11) AUTO_INCREMENT,
+  `orderNumber` int(11) DEFAULT NULL,
+  `productImage` varchar(200) DEFAULT NULL,
+  `productName` varchar(50) DEFAULT NULL,
+  `quantity` int(10) DEFAULT NULL,
+  `price` int(10) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,0 +1,17 @@
+
+
+/* footer */
+
+.menu a {
+    text-decoration:none;
+}
+
+.nowrap{
+    white-space:nowrap
+}
+
+/* .menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+} */

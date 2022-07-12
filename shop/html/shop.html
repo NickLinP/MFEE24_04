@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>網路商店</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="../bootstrap-5.1.1-dist/Bootstrap5_css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-5.1.1-dist/Bootstrap5_js/bootstrap.bundle.min.js">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../css/shop.css">
+    <!-- 導覽列 nclude mmenu files -->
+    <link type="text/css" rel="stylesheet" href="../css/mmenu.css" />
+    <link type="text/css" rel="stylesheet" href="../css/demo.css" />
+    <link type="text/css" rel="stylesheet" href="../css/HeaderAndFooter.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="../css/footer.css" /> -->
+    <!-- mmenu scripts -->
+    <script src="../js/mmenu.js"></script>
+    <!-- 資訊欄 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <!-- 導覽列 body -->
+
+    <div id="page">
+
+        <br>
+        <div id="search-menu">
+            <div class="wrapper">
+                <form id="form" action="#" method=""><input id="popup-search" type="text" name="u"
+                        placeholder="Type here to search" /><button id="popup-search-button" type="submit"
+                        name="search"><i class="fas fa-search"></i></button></form>
+            </div>
+        </div>
+
+        <!-- 導覽列 -->
+        <div id="header">
+
+            <a href="#menu"><span></span></a>
+
+            <img class="logo" src="img/LOGO.png" alt="" width="100vh">
+
+            <embed class="icon" src="img/facebook.svg" width="40vh" />
+
+            <i class="fas fa-search icontwo" id="search-icon"></i>
+
+        </div>
+    </div>
+
+
+
+    <nav id="menu">
+        <ul>
+            <li><a href="#/">首頁</a></li>
+            <li><a href="#/">展場介紹</a></li>
+            <li><a href="#/">展場申請</a></li>
+            <li><a href="#/">詳細展覽</a></li>
+            <li><a href="#/">咖啡輕食</a></li>
+            <li><a href="#/">網路商店</a></li>
+            <li><a href="#/">交通資訊</a></li>
+        </ul>
+    </nav>
+    </div>
+
+    <!-- mmenu scripts -->
+    <script src="../js/mmenu.js"></script>
+    <script src="../js/HeaderAndFooter.js"></script>
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded", () => {
+                new Mmenu("#menu", {
+                    "offCanvas": {
+                        "position": "right"
+                    },
+                    "theme": "light"
+                });
+            }
+        );
+    </script>
+    <div>
+        <h1 id="titlename" align="center" style="font-size: 36px;">所有商品</h1>
+    </div>
+    <div class="menuselect">
+
+        <div>
+            <select style="width: 150px ;border: 1px solid black;" class="siblings;" id="s00" onchange="selectOp();">
+                <option selected value="4">--類別--</option>
+                <option value="0">T-shirt</option>
+                <option value="1">絲巾</option>
+                <option value="2">海報</option>
+                <option value="3">其他</option>
+                <option value="4">所有商品</option>
+            </select>
+        </div>
+        <div>
+            <select style="width: 150px ;border: 1px solid black;" class="apple;" id="s01" onchange="selectOp2();">
+                <option selected value="55">--排列方式--</option>
+                <option value="5">價錢由低至高</option>
+                <option value="6">價錢由高至低</option>
+                <option value="7">由新到舊</option>
+                <option value="8">由舊到新</option>
+            </select>
+        </div>
+
+    </div>
+    <script src="../js/jquery-3.4.1.js"></script>
+
+    <script>
+        // 商品分類
+        function selectOp() {
+            // 'select option:selected'
+            var vs = $('#s00').val();
+            if (vs == 0) {
+                $('.pageBox').siblings().css({ "display": "none" });
+                $('.Tshirt,#pageall').addClass().css({ "display": "flex" });
+                $("#pageall div").remove();
+                $(".Tshirt").clone().appendTo("#pageall");
+                $("#titlename").text(`${'T-shirt'}`);
+                $('#s01').val(55);
+
+            } else
+                if (vs == 1) {
+                    $('.pageBox').siblings().css({ "display": "none" });
+                    $('.silkscarf,#pageall').addClass().css({ "display": "flex" });
+                    $("#pageall div").remove();
+                    $(".silkscarf").clone().appendTo("#pageall");
+                    $("#titlename").text(`${'絲巾'}`);
+                    $('#s01').val(55);
+                } else
+                    if (vs == 2) {
+                        $('.pageBox').siblings().css({ "display": "none" });
+                        $('.poster,#pageall').addClass().css({ "display": "flex" });
+                        $("#pageall div").remove();
+                        $(".poster").clone().appendTo("#pageall");
+                        $("#titlename").text(`${'海報'}`);
+                        $('#s01').val(55);
+                    } else
+                        if (vs == 3) {
+                            $('.pageBox').siblings().css({ "display": "none" });
+                            $('.Other,#pageall').addClass().css({ "display": "flex" });
+                            $("#pageall div").remove();
+                            $(".Other").clone().appendTo("#pageall");
+                            $("#titlename").text(`${'其他'}`);
+                            $('#s01').val(55);
+                        } else
+                            if (vs == 4) {
+                                $("#pageall").css({ "display": "none" });
+                                $('.pageindex').css({ "display": "flex" });
+                                $("#titlename").text(`${'所有商品'}`);
+                                $('#s01').val(55);
+                            };
+            $.getScript('../js/ShopChangeImg.js');
+        };
+        // 商品篩選
+        function selectOp2() {
+            var vs = $('#s00').val();
+            var vs2 = $('#s01').val();
+
+            // 全部商品進行排序
+            if (vs == 4 && vs2 == 5) {
+                $('.pageBox').siblings().css({ "display": "none" });
+                $('.Tshirt,#pageall').addClass().css({ "display": "flex" });
+                $("#pageall div").remove();
+                $(".NT180").clone().appendTo("#pageall");
+                $(".NT250").clone().appendTo("#pageall");
+                $(".NT260").clone().appendTo("#pageall");
+                $(".NT290").clone().appendTo("#pageall");
+                $(".NT390").clone().appendTo("#pageall");
+                $(".NT420").clone().appendTo("#pageall");
+                $(".NT680").clone().appendTo("#pageall");
+                $(".NT980").clone().appendTo("#pageall");
+                $(".NT1280").clone().appendTo("#pageall");
+                $(".NT2700").clone().appendTo("#pageall");
+                $(".NT6500").clone().appendTo("#pageall");
+            } else
+                if (vs == 4 && vs2 == 6) {
+                    $('.pageBox').siblings().css({ "display": "none" });
+                    $('.Tshirt,#pageall').addClass().css({ "display": "flex" });
+                    $("#pageall div").remove();
+                    $(".NT6500").clone().appendTo("#pageall");
+                    $(".NT2700").clone().appendTo("#pageall");
+                    $(".NT1280").clone().appendTo("#pageall");
+                    $(".NT980").clone().appendTo("#pageall");
+                    $(".NT680").clone().appendTo("#pageall");
+                    $(".NT420").clone().appendTo("#pageall");
+                    $(".NT390").clone().appendTo("#pageall");
+                    $(".NT290").clone().appendTo("#pageall");
+                    $(".NT260").clone().appendTo("#pageall");
+                    $(".NT250").clone().appendTo("#pageall");
+                    $(".NT180").clone().appendTo("#pageall");
+                } else
+                    if (vs == 4 && vs2 == 7) {
+                        $('.pageBox').siblings().css({ "display": "none" });
+                        $('.Tshirt,#pageall').addClass().css({ "display": "flex" });
+                        $("#pageall div").remove();
+                        $(".DS1").clone().appendTo("#pageall");
+                        $(".MD2").clone().appendTo("#pageall");
+                        $(".TH3").clone().appendTo("#pageall");
+                    } else
+                        if (vs == 4 && vs2 == 8) {
+                            $('.pageBox').siblings().css({ "display": "none" });
+                            $('.Tshirt,#pageall').addClass().css({ "display": "flex" });
+                            $("#pageall div").remove();
+                            $(".TH3").clone().appendTo("#pageall");
+                            $(".MD2").clone().appendTo("#pageall");
+                            $(".DS1").clone().appendTo("#pageall");
+                        } else
+
+                            // 篩選後商品進行排序
+                            //vs == 0 
+                            if (vs == 0 && vs2 == 5) {
+                                $("#pageall div").remove();
+                                $(".NT680").clone().appendTo("#pageall");
+                                $(".NT980.Tshirt").clone().appendTo("#pageall");
+                                $(".NT1280").clone().appendTo("#pageall");
+                            } else
+                                if (vs == 0 && vs2 == 6) {
+                                    $("#pageall div").remove();
+                                    $(".NT1280").clone().appendTo("#pageall");
+                                    $(".NT980.Tshirt").clone().appendTo("#pageall");
+                                    $(".NT680").clone().appendTo("#pageall");
+                                } else
+                                    if (vs == 0 && vs2 == 7) {
+                                        $("#pageall div").remove();
+                                        $(".NT1280").clone().appendTo("#pageall");
+                                        $(".NT680").clone().appendTo("#pageall");
+                                        $(".NT980.Tshirt").clone().appendTo("#pageall");
+                                    } else
+                                        if (vs == 0 && vs2 == 8) {
+                                            $("#pageall div").remove();
+                                            $(".NT980.Tshirt").clone().appendTo("#pageall");
+                                            $(".NT680").clone().appendTo("#pageall");
+                                            $(".NT1280").clone().appendTo("#pageall");
+                                        }
+
+            // vs == 1,2 都時間價錢都樣跳過不做
+            // vs == 3
+            if (vs == 3 && vs2 == 5) {
+                $("#pageall div").remove();
+                $(".NT180").clone().appendTo("#pageall");
+                $(".NT250").clone().appendTo("#pageall");
+                $(".NT260").clone().appendTo("#pageall");
+                $(".NT290").clone().appendTo("#pageall");
+                $(".NT390").clone().appendTo("#pageall");
+                $(".NT420").clone().appendTo("#pageall");
+                $(".NT2700").clone().appendTo("#pageall");
+                $(".NT6500").clone().appendTo("#pageall");
+            } else
+                if (vs == 3 && vs2 == 6) {
+                    $("#pageall div").remove();
+                    $(".NT6500").clone().appendTo("#pageall");
+                    $(".NT2700").clone().appendTo("#pageall");
+                    $(".NT420").clone().appendTo("#pageall");
+                    $(".NT390").clone().appendTo("#pageall");
+                    $(".NT290").clone().appendTo("#pageall");
+                    $(".NT260").clone().appendTo("#pageall");
+                    $(".NT250").clone().appendTo("#pageall");
+                    $(".NT180").clone().appendTo("#pageall");
+                } else
+                    if (vs == 3 && vs2 == 7) {
+                        $("#pageall div").remove();
+                        $(".DS1").clone().appendTo("#pageall");
+                        $(".Other.MD2").clone().appendTo("#pageall");
+                        $(".Other.TH3").clone().appendTo("#pageall");
+                    } else
+                        if (vs == 3 && vs2 == 8) {
+                            $("#pageall div").remove();
+                            $(".Other.TH3").clone().appendTo("#pageall");
+                            $(".Other.MD2").clone().appendTo("#pageall");
+                            $(".DS1").clone().appendTo("#pageall");
+                        }
+            $.getScript('../js/ShopChangeImg.js');
+        }
+    </script>
+
+    <div id="part1" style="margin-bottom: 150px;">
+        <div class="commodity pageBox pageindex" id="page01">
+            <div class="silkscarf TH3 NT980">
+                <a href="./products.html" id="idP1">
+                    <img src="../image/絲巾1.jpg" alt="">
+                    <!-- <img src="" alt=""> -->
+                    <p align="center">Traveling & Hugging - 矢後直規設計師絲巾</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="silkscarf TH3 NT980"><a href="" id="idP2">
+                    <img src="../image/絲巾2.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 李君慈設計師絲巾</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="silkscarf TH3 NT980"><a href="" id="idP3">
+                    <img src="../image/絲巾3.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 高田唯設計師絲巾</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="silkscarf TH3 NT980"><a href="" id="idP4">
+                    <img src="../image/絲巾4.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 楊士慶設計師絲巾</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP5">
+                    <img src="../image/hb1.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 楊士慶設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP6">
+                    <img src="../image/hb2.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 施博瀚設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP7">
+                    <img src="../image/hb3.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 郭欣翔設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP8">
+                    <img src="../image/hb4.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 李君慈設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP9">
+                    <img src="../image/hb5.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 方序中設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP10">
+                    <img src="../image/hb6.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 郭中元設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP11">
+                    <img src="../image/hb7.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 矢後直規設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP12">
+                    <img src="../image/hb8.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 小林一毅設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP13">
+                    <img src="../image/hb9.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 高田唯設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP14">
+                    <img src="../image/hb10.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 田部井美奈設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP15">
+                    <img src="../image/hb11.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 加賴透設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class="poster TH3 NT980"><a href="" id="idP16">
+                    <img src="../image/hb12.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 中村志男設計師海報</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+        </div>
+        <div class="commodity pageBox" id="page02" style="display:none;">
+            <div class='Tshirt TH3 NT980'>
+                <a href="" id="idP17">
+                    <img src="../image/T-shirt1.jpg" alt="" >
+                    <p align="center">Traveling & Hugging - 郭中元設計師T-shirt</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class='Tshirt TH3 NT980'><a href="" id="idP18">
+                    <img src="../image/T-shirt2.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 郭欣翔設計師T-shirt</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class='Tshirt TH3 NT980'><a href="" id="idP19">
+                    <img src="../image/T-shirt3.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 方序中設計師T-shirt</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class='Tshirt TH3 NT980'><a href="" id="idP20">
+                    <img src="../image/T-shirt4.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 施博瀚設計師T-shirt</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class='Tshirt TH3 NT980'><a href="" id="idP21">
+                    <img src="../image/T-shirt5.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 中村至男設計師T-shirt</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class='Tshirt TH3 NT980'><a href="" id="idP22">
+                    <img src="../image/T-shirt6.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 小林一毅設計師T-shirt</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class='Tshirt TH3 NT980'><a href="" id="idP23">
+                    <img src="../image/T-shirt7.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 加賴透設計師T-shirt</p>
+                    <p align="center">NT$ 980</p>
+                </a>
+            </div>
+            <div class='Tshirt TH3 NT680'><a href="" id="idP24">
+                    <img src="../image/T-shirt8.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 主視覺T-shirt</p>
+                    <p align="center">NT$ 680</p>
+                </a>
+            </div>
+            <div class="Other TH3 NT250"><a href="" id="idP25">
+                    <img src="../image/封箱膠帶.jpg" alt="">
+                    <p align="center">Traveling & Hugging - 封箱膠帶</p>
+                    <p align="center">NT$ 250</p>
+                </a>
+            </div>
+            <div class="Other MD2 NT180"><a href="" id="idP26">
+                    <img src="../image/貼紙.jpg" alt="">
+                    <p align="center">MASKBOYx Def Space貼紙</p>
+                    <p align="center">NT$ 180</p>
+                </a>
+            </div>
+            <div class="Other MD2 NT260"><a href="" id="idP27">
+                    <img src="../image/胸章.jpg" alt="">
+                    <p align="center">URBAN VS. OUTDOOR 胸章套組</p>
+                    <p align="center">NT$ 260</p>
+                </a>
+            </div>
+            <div class="Other MD2 NT290"><a href="" id="idP28">
+                    <img src="../image/玻璃杯封面.jpg" alt="">
+                    <p align="center">MASKBOYx Def Space玻璃杯</p>
+                    <p align="center">NT$ 290</p>
+                </a>
+            </div>
+            <div class="Other MD2 NT390"><a href="" id="idP29">
+                    <img src="../image/專刊貼紙組合包.jpg" alt="">
+                    <p align="center">URBAN VS. OUTDOOR 展覽專刊貼紙組合包</p>
+                    <p align="center">NT$ 390</p>
+                </a>
+            </div>
+            <div class="Other MD2 NT2700"><a href="" id="idP30">
+                    <img src="../image/森巴桌封面.jpg" alt="">
+                    <p align="center">MASKBOYx Black Design 森巴桌</p>
+                    <p align="center">NT$ 2,700</p>
+                </a>
+            </div>
+            <div class="Other MD2 NT6500"><a href="" id="idP31">
+                    <img src="../image/武椅封面.jpg" alt="">
+                    <p align="center">MASKBOY x Black Design 武椅</p>
+                    <p align="center">NT$ 6,500</p>
+                </a>
+            </div>
+            <div class='Tshirt MD2 NT1280'><a href="" id="idP32">
+                    <img src="../image/T-shirt MASKBOYx GLAb.jpg" alt="">
+                    <p align="center">MASKBOYx Def Space T-shirt</p>
+                    <p align="center">NT$ 1,280</p>
+                </a>
+            </div>
+
+        </div>
+        <div class="commodity pageBox" id="page03" style="display:none;">
+            <div class="Other TH3 NT420"><a href="" id="idP33">
+                    <img src="../image/帆布提袋.jpg" alt="">
+                    <p align="center">Traveling & Hugging -帆布提袋</p>
+                    <p align="center">NT$ 420</p>
+                </a>
+            </div>
+            <div class="Other DS1 NT250"><a href="" id="idP34">
+                    <img src="../image/沉醉者1.jpg" alt="">
+                    <p align="center">沉醉者藝術專刊x Def Space -第一期</p>
+                    <p align="center">NT$ 250</p>
+                </a>
+            </div>
+            <div class="Other DS1 NT250"><a href="" id="idP35">
+                    <img src="../image/沉醉者2.jpg" alt="">
+                    <p align="center">沉醉者藝術專刊x Def Space -第二期</p>
+                    <p align="center">NT$ 250</p>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="pageBox pageindex" id="pagediv" style="width:100% ;height: 100px;">
+            <ul class="pagination" style="padding: 50px;">
+                <!-- <li id="FirstPage"><a href="#">«</a></li> -->
+                <li><a href="#page01">1</a></li>
+                <li><a href="#page02">2</a></li>
+                <li><a href="#page03">3</a></li>
+                <!-- <li id="LastPage"><a href="#">»</a></li> -->
+            </ul>
+        </div>
+        <div class="commodity" id="pageall" style="display:none;"></div>
+    </div>
+
+    <!-- 商品換頁功能 -->
+    <script>
+        var as = document.querySelectorAll(".pagination a");
+        var fp = document.querySelector("#FirstPage");
+        var lp = document.querySelectorAll("#LastPage");
+        for (var i = 0; i < as.length; i++) {
+            as[i].onclick = function () {
+                // 隱藏所有的 div
+                var divs = document.querySelectorAll(".commodity");
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.display = "none";
+                }
+                // 讓對應的 div顯示
+                // 獲取當前的 a 的 href
+                var i = this.href.lastIndexOf("#");
+                var id = this.href.slice(i);
+                console.log(id)
+                document.querySelector(id).style.display = "flex";
+            }
+        }
+    </script>
+    <!-- 滑鼠懸浮更換商品圖片 -->
+    <script src="../js/ShopChangeImg.js"></script>
+
+
+
+    <!-- --頁尾-- -->
+    <!-- 資訊欄 -->
+    <br>
+    <hr><br>
+    <div class="row">
+        <div class="col-6">
+
+            <span class="float-md-end mb-3 ms-md-3">
+
+                <h3 class="me-3 fw-bold">定義空間</h3>
+                <p class="me-3">
+                    12:00pm - 06:00pm<br>
+                    禮拜一公休
+                    <br><br>
+                    104台北市中山區<br>
+                    林森北路107巷10號
+                </p>
+
+            </span>
+
+
+        </div>
+
+
+        <div class="col-6 border-start  border-4 ">
+
+            <input type="button" onclick="project(this)" class="button btn btn-dark mx-4 mb-4" value="網路商店"><br>
+
+            <p class="mx-4">
+                tel 02-2537782<br>
+                service@veneu.tw</p>
+
+            <a class="facebook" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                </svg></a>
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                </svg></i></a>
+
+        </div>
+
+
+
+        <!-- 頁尾 -->
+        <footer>
+            <div class="mt-4 footer row justify-content-center">
+
+                <div class="col-md-12 text-center">
+                    <div class="container">
+                        <p class="menu">
+                            <a href="#">展場介紹</a>
+                            <a href="#">展場申請</a>
+                            <a href="#">展覽介紹</a>
+                            <a href="#"><img src="img/LOGO.png" alt="LOGO" width="70vh"></a>
+                            <a href="#">咖啡輕食</a>
+                            <a href="#">網路商店</a>
+                            <a href="#">交通資訊</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="copyright">Copyright ©2022</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

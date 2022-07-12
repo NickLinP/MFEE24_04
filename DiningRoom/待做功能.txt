@@ -1,0 +1,28 @@
+IF (假設條件,True,False)
+
+
+
+巢狀查詢多張表 — 子查詢
+[SQL 語句1]WHERE 條件 ([SQL 語句2])
+
+SELECT * FROM 表名稱 WHERE 篩選條件
+
+
+
+計算總和
+SELECT SUM (資料欄位名) FROM 資料表; WHERE 篩選條件
+SELECT SUM(`number`)AS x FROM`訂位資料`GROUP BY `date_s`, `period`HAVING count(*)>1 AND SUM(`number`)>10;
+SELECT `date_s`,`period` FROM 訂位資料 GROUP BY `date_s`, `period` HAVING SUM(`number`) > 10;
+SQL 累積總計
+https://www.1keydata.com/tw/sql/sql-running-totals.html
+
+
+
+當人數已滿(10)取消該時段
+$('#id').text('該時段已滿');
+$('#id').attr('');標籤替換
+
+if ("<?php $_FILES['co_3v3']['error'] ?>" === 0)
+UPLOAD_ERR_OK
+
+google表單，擴充功能「Choice Eliminator 2」

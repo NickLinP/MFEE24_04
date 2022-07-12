@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <button id="btnGetOpenData">取得資料</button>
+    <hr>
+    <div id="divResult"></div>
+    <script>
+        // 10. 按鈕點選時，載入資料
+        btnGetOpenData.addEventListener('click', getFile)
+        // 30. 宣告 function getFile()
+        // * 透過 XMLHttpRequest 取得資料
+        // * 解析格式，將資料呈現至網頁中
+        function getFile() {
+            var xhr = new XMLHttpRequest();
+            var url = " https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=rdec-key-123-45678-011121314&format=JSON";
+            xhr.open("GET", url);
+            xhr.send();
+            // #divResult
+            xhr.addEventListener('load', function () {
+                var data = JSON.parse(xhr.responseText);
+                console.log(data);
+                // console.log(data.cwbopendata);
+                // console.log(data.cwbopendata.dataid);
+                // console.log(data.cwbopendata.dataset);
+                // console.log(data.cwbopendata.dataset.location);
+                // console.log(data.cwbopendata.dataset.location[0]);
+                // console.log(data.cwbopendata.dataset.location[0].locationName);
+            })
+        }
+    </script>
+</body>
+
+</html>

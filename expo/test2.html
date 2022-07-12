@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+    <!--display overall status-->
+    <div class="info-board">
+        Total Images Loaded: <span class="placeholder">0</span>
+    </div>
+
+    <!--display images-->
+    <div class="image-container">
+        <ul class="image-list" style="text-align: center;">
+        </ul>
+        <div class="observer"></div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const imgContainer = document.querySelector('.image-container')
+        const imageList = document.querySelector('.image-list')
+        const loadingObserver = document.querySelector('.observer')
+        const placeholder = document.querySelector('.placeholder')
+        const IMAGE_PER_PAGE = 6
+        let page = 1
+
+
+        //響鈴條件：設定在哪些情況下，呼叫call back
+        const options = {
+            root: imgContainer,
+            rootMargin: "0px 0px 200px 0px",
+            threshold: 0
+        }
+
+        // 載入圖片的函式
+        const fetchImages = () => {
+            axios.get(`https://picsum.photos/v2/list?page=${page}&limit=${IMAGE_PER_PAGE}`)
+                .then(res => {
+                    res.data.forEach(image => {
+                        imageList.innerHTML += `<div class="row1">
+          <li class="image-item"><img class="image" src=${image.download_url}></li>
+          <li class="image-content"><span>作品編號：${image.id}</span></li>
+          <li class="image-content"><span>作者：${image.author}</span></li>
+          </div>    
+        `                       
+                    })
+                    page += 1
+                 //updateInfoBoard()
+                })
+        }
+
+        //條件達成響鈴後要做什麼：目標進入或離開viewport 觸發callback 
+        const callback = ([entry]) => {
+            // entries 能拿到所有目標元素進出(intersect)變化的資訊
+            if (entry && entry.isIntersecting) {
+             fetchImages()
+          }
+        }
+
+        //step 1 製作一個鈴鐺，帶入一個相關設定（響鈴後要做什麼callback / 響鈴條件options）
+        let observer = new IntersectionObserver(callback, options)
+
+        //step 2 設定觀察對像:告訴observer要觀察哪個目標元素
+        //當建完IntersectionObserver後，能透過 observe() 設定要觀察的元素
+        observer.observe(loadingObserver)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+.article-container a{
+    color:black;
+    text-decoration: underline solid transparent;
+    transition: text-decoration .4s ease-in-out;
+    display: block;
+    margin: 1em auto;
+    padding: 1em;
+}
+
+.article-container a:hover {
+  color:rgb(0, 0, 0); 
+    text-decoration: underline solid ;
+  }
+
+h4{
+  font-weight: 500;
+}

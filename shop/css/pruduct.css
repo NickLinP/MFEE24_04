@@ -1,0 +1,31 @@
+/* display: flex; */
+/* align-items:center;     上下置中
+   justify-content:center; 左右置中 */
+   
+#bigimg {
+    width: 500px;
+    height:500px;
+}
+.productBox{
+    margin-top: 100px;
+}
+
+.productInfo{
+    height: 70px;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    color: Black;
+}
+#shopCar>div>div {
+    display:flex ;
+    justify-content: space-around;
+    align-items: center; 
+}
+.productBox img {
+    width: 240px;
+    height: 240px;
+}
+
+
+

@@ -1,0 +1,74 @@
+/* .container {
+    background-color: #ededed;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+#WeatherCard {
+    position: relative;
+    min-width: 360px;
+    box-shadow: 0 1px 3px 0 #999999;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    padding: 30px 30px;
+    border-radius: 10px;
+    background: url(../img/天氣背景1.jpg) no-repeat;
+    background-size: 600px;
+}
+
+#CName {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#Description {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#CurrentWeather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+#Temperature {
+    color: white;
+    font-size: 96px;
+    font-weight: 300;
+    display: flex;
+}
+
+#Celsius {
+    font-weight: normal;
+    font-size: 42px;
+}
+
+#AirFlow {
+    display: flex;
+    align-items: center;
+    font-size: 16x;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#Rain {
+    display: flex;
+    align-items: center;
+    font-size: 16x;
+    font-weight: 300;
+    color: white;
+}
+
+#AirFlowIcon,
+#RainIcon {
+    width: 25px;
+    height: auto;
+    margin-right: 30px;
+}
