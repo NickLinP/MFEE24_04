@@ -104,7 +104,6 @@ button:hover .button-text {
     grid-gap: 0.625rem;
     grid-template-areas: ". main main ." ". main main .";
   }
-
   #container {
     grid-area: main;
     align-self: center;

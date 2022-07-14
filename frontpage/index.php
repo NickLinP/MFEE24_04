@@ -492,7 +492,8 @@ background-repeat: no-repeat;
 <div class="row justify-content-center">
 <div class="col-md-6 ">
 <span class="float-md-end mb-3 ms-md-3">
-  <img src="img/螢幕擷取畫面 (43).png" class="img-fluid" alt="Wild Landscape" />
+  <!-- <img src="img/螢幕擷取畫面 (43).png" class="img-fluid" alt="Wild Landscape" /> -->
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.556409097462!2d121.51986251456346!3d25.04912378396527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96e50850aa9%3A0x3f3386c5e17b6e7b!2zMTA0OTHlj7DljJfluILkuK3lsbHljYDkuK3lsbHljJfot6_kuIDmrrU1M-W3tzbomZ8!5e0!3m2!1szh-TW!2stw!4v1657766701856!5m2!1szh-TW!2stw" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </span>
 
 </div>
@@ -566,7 +567,9 @@ service@veneu.tw</p>
 </div>
 
 <!-- loading頁 -->
-<div id="loading"></div>
+<div id="loading">
+<div class="sp sp-sphere"></div>
+</div>
 
 
             <!-- 頁尾 -->
@@ -579,7 +582,7 @@ service@veneu.tw</p>
                             <a href="#">展場介紹</a>
                             <a href="#">展場申請</a>
                             <a href="#">展覽介紹</a>
-                            <a href="#"><img src="img/LOGO.png" alt="LOGO" width="70vh"></a>
+                            <a href="#"><img src="img/picwish.png" alt="LOGO" width="70vh"></a>
                             <a  href="#">咖啡輕食</a>
                             <a href="#">網路商店</a>
                             <a  href="#">交通資訊</a>
