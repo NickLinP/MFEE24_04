@@ -582,7 +582,7 @@ service@veneu.tw</p>
                             <a href="#">展場介紹</a>
                             <a href="#">展場申請</a>
                             <a href="#">展覽介紹</a>
-                            <a href="#"><img src="img/picwish.png" alt="LOGO" width="70vh"></a>
+                            <a href="#"><img src="img/footer.png" alt="LOGO" width="70vh"></a>
                             <a  href="#">咖啡輕食</a>
                             <a href="#">網路商店</a>
                             <a  href="#">交通資訊</a>
