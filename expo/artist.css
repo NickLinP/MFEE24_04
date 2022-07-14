@@ -5,27 +5,16 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
-.wrapper{
+.wwrapper{
     overflow: hidden;
 }
 
 /* Public version */
 .givePadding{
-  margin-top: 30px; 
+  margin-top: 60px; 
   margin-bottom: 30px;
 }
 
-/* Nav Bar */
-.nav {
-    height: 150px;  
-    background-color: rgba(0,0,0,0.2);  
-    font-size: 36px;
-}
-@media (max-width:768px) {
-    .nav{
-        height: 200px;
-    }
-} 
 /* Head */
 
 .ahead .aheadR{
@@ -34,10 +23,10 @@ body{
    justify-content: end;
 }
 .ahead .aheadPic{
-    height: 75vh;
-    width: 100%;
-   
+    height: 90vh;
+    width: 100%;  
 }
+
 /* Text */
 .atext .row{
     text-align: center;
@@ -49,12 +38,12 @@ body{
 .atext .atextContent h5{
     line-height: 175%; 
 }
+
 /* Author */
 .aauthor{
     padding-top: 60px;
     padding-bottom: 60px;
 }
-
 .aauthor .aauthorPic{
     height: 250px;
     width: 250px;
@@ -70,16 +59,11 @@ body{
 .aauthor .aaText{
     line-height: 175%; 
 }
+
 /* Carousel */ 
  .carousel {
     width: 75%;
     height: 75vh;
     display: flex;
    margin: 0 auto;
-
- }
-.footer {
-    height:350px;  
-    background-color: rgba(0,0,0,0.2);  
-    font-size: 36px;
 }
