@@ -1,0 +1,32 @@
+@keyframes spSlices {
+	0% {
+		border-top: 16px rgba($spCol,0.75) solid;
+		border-right: 16px rgba($spCol,0.25) solid;
+		border-bottom: 16px rgba($spCol,0.25) solid;
+		border-left: 16px rgba($spCol,0.25) solid;
+	}
+	25% {
+		border-top: 16px rgba($spCol,0.25) solid;
+		border-right: 16px rgba($spCol,0.75) solid;
+		border-bottom: 16px rgba($spCol,0.25) solid;
+		border-left: 16px rgba($spCol,0.25) solid;
+	}
+	50% {
+		border-top: 16px rgba($spCol,0.25) solid;
+		border-right: 16px rgba($spCol,0.25) solid;
+		border-bottom: 16px rgba($spCol,0.75) solid;
+		border-left: 16px rgba($spCol,0.25) solid;
+	}
+	75% {
+		border-top: 16px rgba($spCol,0.25) solid;
+		border-right: 16px rgba($spCol,0.25) solid;
+		border-bottom: 16px rgba($spCol,0.25) solid;
+		border-left: 16px rgba($spCol,0.75) solid;
+	}
+	100% {
+		border-top: 16px rgba($spCol,0.75) solid;
+		border-right: 16px rgba($spCol,0.25) solid;
+		border-bottom: 16px rgba($spCol,0.25) solid;
+		border-left: 16px rgba($spCol,0.25) solid;
+	}
+}
