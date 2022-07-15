@@ -52,15 +52,13 @@
                             <th>名稱:</th>
                             <th>英文名稱:</th>
                             <th>價格:</th>
-                            <!-- <th>目前圖片:</th> -->
                             <th>上傳檔案:</th>
                         </tr>
                     </thead>
                     <tr class="table align-middle">
                         <td><input type="text" name="co_1" value="美式咖啡"></td>
                         <td><input type="text" name="co_1v1" value="Caffè Americano"></td>
-                        <td><input type="text" name="co_1v2" value="NTD75"></td>
-                        <!-- <td><img src="image/co_1.jpg" alt=""></td> -->
+                        <td><input type="text" name="co_1v2" value="NT$75"></td>
                         <td>
                             <img class="image" id="output_1" height="200" style="display:none">
                             <input type="file" name="co_1v3" onchange="openFile_1(event)">
@@ -69,8 +67,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="co_2" value="義式濃縮咖啡"></td>
                         <td><input type="text" name="co_2v1" value="Espresso"></td>
-                        <td><input type="text" name="co_2v2" value="NTD85"></td>
-                        <!-- <td><img src="image/co_2.jpg" alt=""></td> -->
+                        <td><input type="text" name="co_2v2" value="NT$85"></td>
                         <td>
                             <img class="image" id="output_2" height="200" style="display:none">
                             <input type="file" name="co_2v3" onchange="openFile_2(event)">
@@ -79,8 +76,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="co_3" value="椪糖咖啡"></td>
                         <td><input type="text" name="co_3v1" value="Dalgona coffee"></td>
-                        <td><input type="text" name="co_3v2" value="NTD90"></td>
-                        <!-- <td><img src="image/co_3.jpg" alt=""></td> -->
+                        <td><input type="text" name="co_3v2" value="NT$90"></td>
                         <td>
                             <img class="image" id="output_3" height="200" style="display:none">
                             <input type="file" name="co_3v3" onchange="openFile_3(event)">
@@ -89,8 +85,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="co_4" value="卡布奇諾"></td>
                         <td><input type="text" name="co_4v1" value="Cappuccino"></td>
-                        <td><input type="text" name="co_4v2" value="NTD95"></td>
-                        <!-- <td><img src="image/co_4.jpg" alt=""></td> -->
+                        <td><input type="text" name="co_4v2" value="NT$95"></td>
                         <td>
                             <img class="image" id="output_4" height="200" style="display:none">
                             <input type="file" name="co_4v3" onchange="openFile_4(event)">
@@ -99,8 +94,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="co_5" value="咖啡拿鐵"></td>
                         <td><input type="text" name="co_5v1" value="Caffè Latte"></td>
-                        <td><input type="text" name="co_5v2" value="NTD95"></td>
-                        <!-- <td><img src="image/co_5.jpg" alt=""></td> -->
+                        <td><input type="text" name="co_5v2" value="NT$95"></td>
                         <td>
                             <img class="image" id="output_5" height="200" style="display:none">
                             <input type="file" name="co_5v3" onchange="openFile_5(event)">
@@ -109,8 +103,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="co_6" value="焦糖瑪奇朵"></td>
                         <td><input type="text" name="co_6v1" value="Caramel Macchiato"></td>
-                        <td><input type="text" name="co_6v2" value="NTD100"></td>
-                        <!-- <td><img src="image/co_6.jpg" alt=""></td> -->
+                        <td><input type="text" name="co_6v2" value="NT$100"></td>
                         <td>
                             <img class="image" id="output_6" height="200" style="display:none">
                             <input type="file" name="co_6v3" onchange="openFile_6(event)">
@@ -119,8 +112,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="co_7" value="咖啡密斯朵"></td>
                         <td><input type="text" name="co_7v1" value="Caffè Misto"></td>
-                        <td><input type="text" name="co_7v2" value="NTD100"></td>
-                        <!-- <td><img src="image/co_7.jpg" alt=""></td> -->
+                        <td><input type="text" name="co_7v2" value="NT$100"></td>
                         <td>
                             <img class="image" id="output_7" height="200" style="display:none">
                             <input type="file" name="co_7v3" onchange="openFile_7(event)">
@@ -135,15 +127,13 @@
                             <th>名稱:</th>
                             <th>英文名稱:</th>
                             <th>價格:</th>
-                            <!-- <th>目前圖片:</th> -->
                             <th>上傳檔案:</th>
                         </tr>
                     </thead>
                     <tr class="table align-middle">
                         <td><input type="text" name="lo_1" value="錫蘭紅茶"></td>
                         <td><input type="text" name="lo_1v1" value="Ceylon Black Tea"></td>
-                        <td><input type="text" name="lo_1v2" value="NTD60"></td>
-                        <!-- <td><img src="image/lo_1.jpg" alt=""></td> -->
+                        <td><input type="text" name="lo_1v2" value="NT$60"></td>
                         <td>
                             <img class="image" id="output_1" height="200" style="display:none">
                             <input type="file" name="lo_1v3" onchange="openFile_1(event)">
@@ -152,8 +142,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="lo_2" value="冰搖檸檬紅茶"></td>
                         <td><input type="text" name="lo_2v1" value="Shaken Lemon Black Tea"></td>
-                        <td><input type="text" name="lo_2v2" value="NTD65"></td>
-                        <!-- <td><img src="image/lo_2.jpg" alt=""></td> -->
+                        <td><input type="text" name="lo_2v2" value="NT$65"></td>
                         <td>
                             <img class="image" id="output_2" height="200" style="display:none">
                             <input type="file" name="lo_2v3" onchange="openFile_2(event)">
@@ -162,8 +151,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="lo_3" value="精選英式奶茶"></td>
                         <td><input type="text" name="lo_3v1" value="British Milk Tea"></td>
-                        <td><input type="text" name="lo_3v2" value="NTD80"></td>
-                        <!-- <td><img src="image/lo_3.jpg" alt=""></td> -->
+                        <td><input type="text" name="lo_3v2" value="NT$80"></td>
                         <td>
                             <img class="image" id="output_3" height="200" style="display:none">
                             <input type="file" name="lo_3v3" onchange="openFile_3(event)">
@@ -172,8 +160,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="lo_4" value="純素黑熱巧克力"></td>
                         <td><input type="text" name="lo_4v1" value="Vegan Dark Hot Chocolate"></td>
-                        <td><input type="text" name="lo_4v2" value="NTD85"></td>
-                        <!-- <td><img src="image/lo_4.jpg" alt=""></td> -->
+                        <td><input type="text" name="lo_4v2" value="NT$85"></td>
                         <td>
                             <img class="image" id="output_4" height="200" style="display:none">
                             <input type="file" name="lo_4v3" onchange="openFile_4(event)">
@@ -182,8 +169,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="lo_5" value="黑糖珍珠奶茶"></td>
                         <td><input type="text" name="lo_5v1" value="Brown Sugar Pearl milk tea"></td>
-                        <td><input type="text" name="lo_5v2" value="NTD90"></td>
-                        <!-- <td><img src="image/lo_5.jpg" alt=""></td> -->
+                        <td><input type="text" name="lo_5v2" value="NT$90"></td>
                         <td>
                             <img class="image" id="output_5" height="200" style="display:none">
                             <input type="file" name="lo_5v3" onchange="openFile_5(event)">
@@ -192,8 +178,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="lo_6" value="熱可可"></td>
                         <td><input type="text" name="lo_6v1" value="Hot Chocolate"></td>
-                        <td><input type="text" name="lo_6v2" value="NTD90"></td>
-                        <!-- <td><img src="image/lo_6.jpg" alt=""></td> -->
+                        <td><input type="text" name="lo_6v2" value="NT$90"></td>
                         <td>
                             <img class="image" id="output_6" height="200" style="display:none">
                             <input type="file" name="lo_6v3" onchange="openFile_6(event)">
@@ -202,8 +187,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="lo_7" value="冰經典巧克力"></td>
                         <td><input type="text" name="lo_7v1" value="Iced Signature Chocolate"></td>
-                        <td><input type="text" name="lo_7v2" value="NTD135"></td>
-                        <!-- <td><img src="image/lo_7.jpg" alt=""></td> -->
+                        <td><input type="text" name="lo_7v2" value="NT$135"></td>
                         <td>
                             <img class="image" id="output_7" height="200" style="display:none">
                             <input type="file" name="lo_7v3" onchange="openFile_7(event)">
@@ -218,15 +202,13 @@
                             <th>名稱:</th>
                             <th>英文名稱:</th>
                             <th>價格:</th>
-                            <!-- <th>目前圖片:</th> -->
                             <th>上傳檔案:</th>
                         </tr>
                     </thead>
                     <tr class="table align-middle">
                         <td><input type="text" name="eo_1" value="哈姆菠菜蛋堡"></td>
                         <td><input type="text" name="eo_1v1" value="Ham & Frittata Sandwich"></td>
-                        <td><input type="text" name="eo_1v2" value="NTD80"></td>
-                        <!-- <td><img src="image/eo_1.jpg" alt=""></td> -->
+                        <td><input type="text" name="eo_1v2" value="NT$80"></td>
                         <td>
                             <img class="image" id="output_1" height="200" style="display:none">
                             <input type="file" name="eo_1v3" onchange="openFile_1(event)">
@@ -235,8 +217,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="eo_2" value="法式烤火腿三明治"></td>
                         <td><input type="text" name="eo_2v1" value="Ham & Cheese Sandwich"></td>
-                        <td><input type="text" name="eo_2v2" value="NTD85"></td>
-                        <!-- <td><img src="image/eo_2.jpg" alt=""></td> -->
+                        <td><input type="text" name="eo_2v2" value="NT$85"></td>
                         <td>
                             <img class="image" id="output_2" height="200" style="display:none">
                             <input type="file" name="eo_2v3" onchange="openFile_2(event)">
@@ -245,8 +226,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="eo_3" value="起司牛肉可頌"></td>
                         <td><input type="text" name="eo_3v1" value="Cheese & Beef Croissant"></td>
-                        <td><input type="text" name="eo_3v2" value="NTD90"></td>
-                        <!-- <td><img src="image/eo_3.jpg" alt=""></td> -->
+                        <td><input type="text" name="eo_3v2" value="NT$90"></td>
                         <td>
                             <img class="image" id="output_3" height="200" style="display:none">
                             <input type="file" name="eo_3v3" onchange="openFile_3(event)">
@@ -255,8 +235,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="eo_4" value="黑松露嫩蛋三明治"></td>
                         <td><input type="text" name="eo_4v1" value="Truffle and Egg Sandwich"></td>
-                        <td><input type="text" name="eo_4v2" value="NTD95"></td>
-                        <!-- <td><img src="image/eo_4.jpg" alt=""></td> -->
+                        <td><input type="text" name="eo_4v2" value="NT$95"></td>
                         <td>
                             <img class="image" id="output_4" height="200" style="display:none">
                             <input type="file" name="eo_4v3" onchange="openFile_4(event)">
@@ -265,8 +244,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="eo_5" value="鹽燒豬肉堡"></td>
                         <td><input type="text" name="eo_5v1" value="Saute Pork Sandwich"></td>
-                        <td><input type="text" name="eo_5v2" value="NTD95"></td>
-                        <!-- <td><img src="image/eo_5.jpg" alt=""></td> -->
+                        <td><input type="text" name="eo_5v2" value="NT$95"></td>
                         <td>
                             <img class="image" id="output_5" height="200" style="display:none">
                             <input type="file" name="eo_5v3" onchange="openFile_5(event)">
@@ -275,8 +253,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="eo_6" value="經典總匯三明治"></td>
                         <td><input type="text" name="eo_6v1" value="Club Sandwich"></td>
-                        <td><input type="text" name="eo_6v2" value="NTD110"></td>
-                        <!-- <td><img src="image/eo_6.jpg" alt=""></td> -->
+                        <td><input type="text" name="eo_6v2" value="NT$110"></td>
                         <td>
                             <img class="image" id="output_6" height="200" style="display:none">
                             <input type="file" name="eo_6v3" onchange="openFile_6(event)">
@@ -285,8 +262,7 @@
                     <tr class="table align-middle">
                         <td><input type="text" name="eo_7" value="舒肥雞肉蔬菜盅"></td>
                         <td><input type="text" name="eo_7v1" value="Shu Fei Chicken Vegetable"></td>
-                        <td><input type="text" name="eo_7v2" value="NTD200"></td>
-                        <!-- <td><img src="image/eo_7.jpg" alt=""></td> -->
+                        <td><input type="text" name="eo_7v2" value="NT$200"></td>
                         <td>
                             <img class="image" id="output_7" height="200" style="display:none">
                             <input type="file" name="eo_7v3" onchange="openFile_7(event)">
