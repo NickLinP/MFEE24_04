@@ -1,3 +1,12 @@
+<?php
+session_start();
+include("mysql.php");
+if($_SESSION["date_s"] !== "" & $_SESSION["period"] !== ""){
+    $sql = "SELECT `date_s`,`period` FROM 訂位資料 GROUP BY `date_s`, `period` HAVING SUM(`number`) > 10
+        AND date_s = '".$_SESSION["date_s"]."' AND period = '".$_SESSION["period"]."'";
+    $run = mysqli_query($link, $sql);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery.form.js"></script>
     <!-- 導覽列 head -->
 
     <!-- Font Awesome -->
@@ -94,40 +104,42 @@
             }
         );
     </script>
-    <div class="title row" style="background-image: url('./image/ba_2.png');margin: 2% 0 0 0;">
-        <div class="col-12"></div>
-        <div class="col-5"></div>
-        <div class="titlev1 col-7">
-            <h5 class="titlev2" style="color: rgb(208, 187, 0);font-weight: bold;">
+    <div id="titlev1" style="background-image: url('image/ba_3.png');height: 107vh;text-align: center;">
+        <div style="margin: 50px 0 0 0;line-height: 100vh;">
+            <h3 id="titlev2" style="color: rgb(208, 187, 0);padding: 300px 0 0 0;font-weight:bolder">
                 我們愛上這種悠閒、純真的生活方式，
                 在這裡時間、空間都將緩和...
-            </h5>
-            <h6 class="titlev3" style="color: rgb(193, 193, 193);">
+            </h3>
+            <h4 id="titlev3" style="color: rgb(193, 193, 193);padding: 20px 0 0 0;">
                 用別緻的情境儀式，為藝術說出動人故事<br>
                 空間是體驗過程的重要舞台
                 細心勾劃一切五感享受
                 藉故事性與溫度打開想像的觸點<br>
                 為身歷其近的人們留存深刻記憶，銘記再度回訪的理由
-            </h6>
+            </h4>
         </div>
     </div>
     <div id="content">
         <div class="container">
             <div id="tab-demo">
                 <ul class="tab-title col-12">
-                    <h4>
-                        <li><a href="#tab01">
-                                <samp id="sub_1">精品咖啡</samp>
+                    <h4 class="none">
+                        <li><a href="#tab01" style="text-decoration: none;">
+                                <button id="sub_1" class="but">精品咖啡</button>
                             </a></li>
-                        <li><a href="#tab02">
-                                <samp id="sub_2">其他飲品</samp>
+                    </h4>
+                    <h4 class="none">
+                        <li><a href="#tab02" style="text-decoration: none;">
+                                <button id="sub_2" class="but">其他飲品</button>
                             </a></li>
-                        <li><a href="#tab03">
-                                <samp id="sub_3">輕食料理</samp>
+                    </h4>
+                    <h4 class="none">
+                        <li><a href="#tab03" style="text-decoration: none;">
+                                <button id="sub_3" class="but">輕食料理</button>
                             </a></li>
                     </h4>
                 </ul>
-                <div id="tab01" class="tab-inner col-12">
+                <div id="tab01" class="tab-inner">
                     <div id="tab01v2" class="tab-innerv2">
                         <img id="co_1v3" class="cooking" src="image/co_1.jpg" alt="">
                     </div>
@@ -150,57 +162,78 @@
                         <img id="co_7v3" class="cooking" src="image/co_7.jpg" alt="">
                     </div>
 
-                    <div class="menu_1">
-                        <ul class="tab-titlev2">
-                            <h4>
-                                <li><a href="#tab01v2">
-                                        <samp id="co_1">美式咖啡</samp><br>
-                                        <samp id="co_1v1">Caffè Americano</samp>
-                                        <samp id="co_1v2" class="menu_2">NTD75</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab02v2">
-                                        <samp id="co_2">義式濃縮咖啡</samp><br>
-                                        <samp id="co_2v1">Espresso</samp>
-                                        <samp id="co_2v2" class="menu_2">NTD85</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab03v2">
-                                        <samp id="co_3">椪糖咖啡</samp><br>
-                                        <samp id="co_3v1">Dalgona coffee</samp>
-                                        <samp id="co_3v2" class="menu_2">NTD90</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab04v2">
-                                        <samp id="co_4">卡布奇諾</samp><br>
-                                        <samp id="co_4v1">Cappuccino</samp>
-                                        <samp id="co_4v2" class="menu_2">NTD95</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab05v2">
-                                        <samp id="co_5">咖啡拿鐵</samp><br>
-                                        <samp id="co_5v1">Caffè Latte</samp>
-                                        <samp id="co_5v2" class="menu_2">NTD95</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab06v2">
-                                        <samp id="co_6">焦糖瑪奇朵</samp><br>
-                                        <samp id="co_6v1">Caramel Macchiato</samp>
-                                        <samp id="co_6v2" class="menu_2">NTD100</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab07v2">
-                                        <samp id="co_7">咖啡密斯朵</samp><br>
-                                        <samp id="co_7v1">Caffè Misto</samp>
-                                        <samp id="co_7v2" class="menu_2">NTD100</samp>
-                                    </a></li>
-                            </h4>
+                    <div class="menu_1 row">
+                        <ul class="tab-titlev2 col-12">
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab01v2">
+                                            <samp id="co_1">美式咖啡</samp><br>
+                                            <samp id="co_1v1">Caffè Americano</samp>
+                                            <samp id="co_1v2" class="menu_2">NT$75</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab02v2">
+                                            <samp id="co_2">義式濃縮咖啡</samp><br>
+                                            <samp id="co_2v1">Espresso</samp>
+                                            <samp id="co_2v2" class="menu_2">NT$85</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab03v2">
+                                            <samp id="co_3">椪糖咖啡</samp><br>
+                                            <samp id="co_3v1">Dalgona coffee</samp>
+                                            <samp id="co_3v2" class="menu_2">NT$90</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab04v2">
+                                            <samp id="co_4">卡布奇諾</samp><br>
+                                            <samp id="co_4v1">Cappuccino</samp>
+                                            <samp id="co_4v2" class="menu_2">NT$95</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab05v2">
+                                            <samp id="co_5">咖啡拿鐵</samp><br>
+                                            <samp id="co_5v1">Caffè Latte</samp>
+                                            <samp id="co_5v2" class="menu_2">NT$95</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab06v2">
+                                            <samp id="co_6">焦糖瑪奇朵</samp><br>
+                                            <samp id="co_6v1">Caramel Macchiato</samp>
+                                            <samp id="co_6v2" class="menu_2">NT$100</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab07v2">
+                                            <samp id="co_7">咖啡密斯朵</samp><br>
+                                            <samp id="co_7v1">Caffè Misto</samp>
+                                            <samp id="co_7v2" class="menu_2">NT$100</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
                         </ul>
                     </div>
                 </div>
@@ -226,57 +259,78 @@
                     <div id="tab07v3" class="tab-innerv3">
                         <img id="lo_7v3" class="cooking" src="image/lo_7.jpg" alt="">
                     </div>
-                    <div class="menu_1">
+                    <div class="menu_1 row">
                         <ul class="tab-titlev3">
-                            <h4>
-                                <li><a href="#tab01v3">
-                                        <samp id="lo_1">錫蘭紅茶</samp><br>
-                                        <samp id="lo_1v1">Ceylon Black Tea</samp>
-                                        <samp id="lo_1v2" class="menu_2">NTD60 </samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab02v3">
-                                        <samp id="lo_2">冰搖檸檬紅茶</samp><br>
-                                        <samp id="lo_2v1">Shaken Lemon Black Tea</samp>
-                                        <samp id="lo_2v2" class="menu_2">NTD65</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab03v3">
-                                        <samp id="lo_3">精選英式奶茶</samp><br>
-                                        <samp id="lo_3v1">British Milk Tea</samp>
-                                        <samp id="lo_3v2" class="menu_2">NTD80</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab04v3">
-                                        <samp id="lo_4">純素黑熱巧克力</samp><br>
-                                        <samp id="lo_4v1">Vegan Dark Hot Chocolate</samp>
-                                        <samp id="lo_4v2" class="menu_2">NTD85</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab05v3">
-                                        <samp id="lo_5">黑糖珍珠奶茶</samp><br>
-                                        <samp id="lo_5v1">Brown Sugar Pearl milk tea</samp>
-                                        <samp id="lo_5v2" class="menu_2">NTD90</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab06v3">
-                                        <samp id="lo_6">熱可可</samp><br>
-                                        <samp id="lo_6v1">Hot Chocolate</samp>
-                                        <samp id="lo_6v2" class="menu_2">NTD90</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab07v3">
-                                        <samp id="lo_7">冰經典巧克力</samp><br>
-                                        <samp id="lo_7v1">Iced Signature Chocolate</samp>
-                                        <samp id="lo_7v2" class="menu_2">NTD135</samp>
-                                    </a></li>
-                            </h4>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab01v3">
+                                            <samp id="lo_1">錫蘭紅茶</samp><br>
+                                            <samp id="lo_1v1">Ceylon Black Tea</samp>
+                                            <samp id="lo_1v2" class="menu_2">NT$60 </samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab02v3">
+                                            <samp id="lo_2">冰搖檸檬紅茶</samp><br>
+                                            <samp id="lo_2v1">Shaken Lemon Black Tea</samp>
+                                            <samp id="lo_2v2" class="menu_2">NT$65</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab03v3">
+                                            <samp id="lo_3">精選英式奶茶</samp><br>
+                                            <samp id="lo_3v1">British Milk Tea</samp>
+                                            <samp id="lo_3v2" class="menu_2">NT$80</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab04v3">
+                                            <samp id="lo_4">純素黑熱巧克力</samp><br>
+                                            <samp id="lo_4v1">Vegan Dark Hot Chocolate</samp>
+                                            <samp id="lo_4v2" class="menu_2">NT$85</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab05v3">
+                                            <samp id="lo_5">黑糖珍珠奶茶</samp><br>
+                                            <samp id="lo_5v1">Brown Sugar Pearl milk tea</samp>
+                                            <samp id="lo_5v2" class="menu_2">NT$90</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab06v3">
+                                            <samp id="lo_6">熱可可</samp><br>
+                                            <samp id="lo_6v1">Hot Chocolate</samp>
+                                            <samp id="lo_6v2" class="menu_2">NT$90</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab07v3">
+                                            <samp id="lo_7">冰經典巧克力</samp><br>
+                                            <samp id="lo_7v1">Iced Signature Chocolate</samp>
+                                            <samp id="lo_7v2" class="menu_2">NT$135</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
                         </ul>
                     </div>
                 </div>
@@ -302,57 +356,78 @@
                     <div id="tab07v4" class="tab-innerv4">
                         <img id="eo_7v3" class="cooking" src="image/eo_7.jpg" alt="">
                     </div>
-                    <div class="menu_1">
+                    <div class="menu_1 row">
                         <ul class="tab-titlev4">
-                            <h4>
-                                <li><a href="#tab01v4">
-                                        <samp id="eo_1">哈姆菠菜蛋堡</samp><br>
-                                        <samp id="eo_1v1">Ham & Frittata Sandwich</samp>
-                                        <samp id="eo_1v2" class="menu_2">NTD80</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab02v4">
-                                        <samp id="eo_2">法式烤火腿三明治</samp><br>
-                                        <samp id="eo_2v1">Ham & Cheese Sandwich</samp>
-                                        <samp id="eo_2v2" class="menu_2">NTD85</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab03v4">
-                                        <samp id="eo_3">起司牛肉可頌</samp><br>
-                                        <samp id="eo_3v1">Cheese & Beef Croissant</samp>
-                                        <samp id="eo_3v2" class="menu_2">NTD90</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab04v4">
-                                        <samp id="eo_4">黑松露嫩蛋三明治</samp><br>
-                                        <samp id="eo_4v1">Truffle and Egg Sandwich</samp>
-                                        <samp id="eo_4v2" class="menu_2">NTD95</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab05v4">
-                                        <samp id="eo_5">鹽燒豬肉堡</samp><br>
-                                        <samp id="eo_5v1">Saute Pork Sandwich</samp>
-                                        <samp id="eo_5v2" class="menu_2">NTD95</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab06v4">
-                                        <samp id="eo_6">經典總匯三明治</samp><br>
-                                        <samp id="eo_6v1">Club Sandwich</samp>
-                                        <samp id="eo_6v2" class="menu_2">NTD110</samp>
-                                    </a></li>
-                            </h4>
-                            <h4>
-                                <li><a href="#tab07v4">
-                                        <samp id="eo_7">舒肥雞肉蔬菜盅</samp><br>
-                                        <samp id="eo_7v1">Shu Fei Chicken Vegetable</samp>
-                                        <samp id="eo_7v2" class="menu_2">NTD200</samp>
-                                    </a></li>
-                            </h4>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab01v4">
+                                            <samp id="eo_1">哈姆菠菜蛋堡</samp><br>
+                                            <samp id="eo_1v1">Ham & Frittata Sandwich</samp>
+                                            <samp id="eo_1v2" class="menu_2">NT$80</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab02v4">
+                                            <samp id="eo_2">法式烤火腿三明治</samp><br>
+                                            <samp id="eo_2v1">Ham & Cheese Sandwich</samp>
+                                            <samp id="eo_2v2" class="menu_2">NT$85</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab03v4">
+                                            <samp id="eo_3">起司牛肉可頌</samp><br>
+                                            <samp id="eo_3v1">Cheese & Beef Croissant</samp>
+                                            <samp id="eo_3v2" class="menu_2">NT$90</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab04v4">
+                                            <samp id="eo_4">黑松露嫩蛋三明治</samp><br>
+                                            <samp id="eo_4v1">Truffle and Egg Sandwich</samp>
+                                            <samp id="eo_4v2" class="menu_2">NT$95</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab05v4">
+                                            <samp id="eo_5">鹽燒豬肉堡</samp><br>
+                                            <samp id="eo_5v1">Saute Pork Sandwich</samp>
+                                            <samp id="eo_5v2" class="menu_2">NT$95</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab06v4">
+                                            <samp id="eo_6">經典總匯三明治</samp><br>
+                                            <samp id="eo_6v1">Club Sandwich</samp>
+                                            <samp id="eo_6v2" class="menu_2">NT$110</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <h4>
+                                    <li class="moo"><a href="#tab07v4">
+                                            <samp id="eo_7">舒肥雞肉蔬菜盅</samp><br>
+                                            <samp id="eo_7v1">Shu Fei Chicken Vegetable</samp>
+                                            <samp id="eo_7v2" class="menu_2">NT$200</samp>
+                                        </a></li>
+                                </h4>
+                            </div>
+                            <div class="col-4"></div>
                         </ul>
                     </div>
                 </div>
@@ -370,19 +445,19 @@
                         <span class="close">&times;</span>
                         <h4 id="reservation">線上訂位</h4>
                     </div>
-                    <form action="">
+                    <form method="POST" action="db.php" name="send" id="upload" onsubmit="return submitForm()">
                         <div class="modal-body">
-                            <h4>定義空間</h4>
-                            <h6>
+                            <h5>
                                 歡迎蒞臨<br>
                                 有訂位需求的顧客，請填寫以下資訊
-                            </h6>
+                            </h5>
+                            <br>
                             <h5>用餐日期</h5>
                             <h6>本餐廳只接受二個月內線上訂位</h6>
                             <label for="bookdate">日期：</label>
-                            <input type="date" id="bookdate" placeholder="2014-09-18">
+                            <input type="date" name="date_s" id="bookdate" placeholder="2014-09-18">
                             <div class="news-filter">
-                                <select name="name" required>
+                                <select id="period" name="period" required>
                                     <option value="" disabled selected hidden>請選擇時間</option>
                                     <option value="12:00">12:00&nbsp;PM</option>
                                     <option value="12:30">12:30&nbsp;PM</option>
@@ -399,22 +474,22 @@
                             </div>
                             <h5>用餐人數</h5>
                             <div class="myDiv">
-                                <input type="range" id="myRange" value="1" min="1" max="10" step="1" required>
+                                <input type="range" name="number" id="myRange" value="1" min="1" max="10" step="1" required>
                                 <br>
                                 <span id="rangeTxt"></span>
                             </div>
                             <h5>訂位資訊</h5>
                             <h6>您的大名</h6>
-                            <input id="booking" oninput="mod()" onpropertychange="mod()" type="text" placeholder="例如:陳先生" required>
+                            <input name="name" id="booking" oninput="mod()" onpropertychange="mod()" type="text" placeholder="例如:陳先生" required>
                             <h6>電話</h6>
-                            <input type="text" maxlength="10" pattern="09\d{8}" placeholder="例如:09xxxxxxxx" required>
+                            <input name="telephone" type="text" maxlength="10" pattern="09\d{8}" placeholder="例如:09xxxxxxxx" required>
                             <h6>謝謝<span id="booker">您</span>的填寫！<br>
                                 在送出前，請再次確認資訊是否填寫正確。<br>
                                 期待您的光臨
                             </h6>
                         </div>
                         <div class="modal-footer">
-                            <input onclick="mod_1()" type="submit">
+                            <input class="button btn btn-dark" onclick="mod_1()" type="submit">
                         </div>
                     </form>
                 </div>
@@ -479,7 +554,7 @@
                             <a href="#">展場介紹</a>
                             <a href="#">展場申請</a>
                             <a href="#">展覽介紹</a>
-                            <a href="#"><img src="img/LOGO.png" alt="LOGO" width="70vh"></a>
+                            <a href="#"><img src="img/footer.png" alt="LOGO" width="70vh"></a>
                             <a href="#">咖啡輕食</a>
                             <a href="#">網路商店</a>
                             <a href="#">交通資訊</a>
@@ -493,6 +568,18 @@
                 </div>
             </div>
         </footer>
+    </div>
+    <div id="xxxx" style="display: none;">
+        <?php
+        if (mysqli_num_rows($run) > 0) {
+            foreach ($run as $row) {
+        ?>
+                <P id="x"><?php echo $_SESSION["date_s"]?></P>
+                <p id="y"><?php echo $_SESSION["period"]?></p>
+        <?php
+            }
+        }
+        ?>
     </div>
     <script>
         //互動視窗
@@ -570,13 +657,56 @@
         // 以上訂位長條軸人數
 
         // 訂位確認通知
+        $x = $("#x").text();
+        $y = $("#y").text();
+
         function mod_1() {
-            alert("訂位成功")
-        };
+            if (document.send.date_s.value == $x &
+                document.send.period.value == $y) {
+                alert(`${$x}\n當天${$y}訂位已滿喔!`);
+                document.send.input.focus();
+                return false;
+            } else {
+                alert("訂位成功\n期待您的光臨");
+            }
+            return true;
+        }
         // 以上訂位確認通知
 
+        // 表單提交後畫面不跳轉
+        function submitForm() {
+            var form = document.getElementById('upload'),
+                formData = new FormData(form);
+            $.ajax({
+                url: "db.php",
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                done: function(res) {
+                    uxAlert('finish:' + res);
+                },
+                success: function(res) {
+                    if (res) {
+                        uxAlert("上傳成功！");
+                    }
+                    console.log(res);
+                },
+                error: function(err) {
+                    uxAlert("網路連線失敗,稍後重試", err);
+                }
+            });
 
+            return false;
+        }
+        // 以上表單提交後畫面不跳轉
 
+        // 菜單樣式
+        $('.col-8').mouseenter(function() {
+            $('.col-8').removeClass('col-8-active');
+            $(this).addClass('col-8-active');
+        });
+        // 以上菜單樣式
 
         $('#co_1').text('<?php echo $_POST["co_1"] ?>');
         $('#co_1v1').text('<?php echo $_POST["co_1v1"] ?>');
@@ -643,30 +773,69 @@
         $('#eo_7v2').text('<?php echo $_POST["eo_7v2"] ?>');
 
 
-
-        $("#co_1v3").attr("src", "./image/<?php echo $_FILES['co_1v3']['name'] ?>");
-        if ("<?php $_FILES['co_3v3']['error'] ?>" === UPLOAD_ERR_OK) {
+        if ("<?php echo $_FILES['co_1v3']['error'] ?>" == 0) {
+            $("#co_1v3").attr("src", "./image/<?php echo $_FILES['co_1v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['co_2v3']['error'] ?>" == 0) {
             $("#co_2v3").attr("src", "./image/<?php echo $_FILES['co_2v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['co_3v3']['error'] ?>" == 0) {
             $("#co_3v3").attr("src", "./image/<?php echo $_FILES['co_3v3']['name'] ?>");
         }
-        $("#co_4v3").attr("src", "./image/<?php echo $_FILES['co_4v3']['name'] ?>");
-        $("#co_5v3").attr("src", "./image/<?php echo $_FILES['co_5v3']['name'] ?>");
-        $("#co_6v3").attr("src", "./image/<?php echo $_FILES['co_6v3']['name'] ?>");
-        $("#co_7v3").attr("src", "./image/<?php echo $_FILES['co_7v3']['name'] ?>");
-        $("#lo_1v3").attr("src", "./image/<?php echo $_FILES['lo_1v3']['name'] ?>");
-        $("#lo_2v3").attr("src", "./image/<?php echo $_FILES['lo_2v3']['name'] ?>");
-        $("#lo_3v3").attr("src", "./image/<?php echo $_FILES['lo_3v3']['name'] ?>");
-        $("#lo_4v3").attr("src", "./image/<?php echo $_FILES['lo_4v3']['name'] ?>");
-        $("#lo_5v3").attr("src", "./image/<?php echo $_FILES['lo_5v3']['name'] ?>");
-        $("#lo_6v3").attr("src", "./image/<?php echo $_FILES['lo_6v3']['name'] ?>");
-        $("#lo_7v3").attr("src", "./image/<?php echo $_FILES['lo_7v3']['name'] ?>");
-        $("#eo_1v3").attr("src", "./image/<?php echo $_FILES['eo_1v3']['name'] ?>");
-        $("#eo_2v3").attr("src", "./image/<?php echo $_FILES['eo_2v3']['name'] ?>");
-        $("#eo_3v3").attr("src", "./image/<?php echo $_FILES['eo_3v3']['name'] ?>");
-        $("#eo_4v3").attr("src", "./image/<?php echo $_FILES['eo_4v3']['name'] ?>");
-        $("#eo_5v3").attr("src", "./image/<?php echo $_FILES['eo_5v3']['name'] ?>");
-        $("#eo_6v3").attr("src", "./image/<?php echo $_FILES['eo_6v3']['name'] ?>");
-        $("#eo_7v3").attr("src", "./image/<?php echo $_FILES['eo_7v3']['name'] ?>");
+        if ("<?php echo $_FILES['co_4v3']['error'] ?>" == 0) {
+            $("#co_4v3").attr("src", "./image/<?php echo $_FILES['co_4v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['co_5v3']['error'] ?>" == 0) {
+            $("#co_5v3").attr("src", "./image/<?php echo $_FILES['co_5v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['co_6v3']['error'] ?>" == 0) {
+            $("#co_6v3").attr("src", "./image/<?php echo $_FILES['co_6v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['co_7v3']['error'] ?>" == 0) {
+            $("#co_7v3").attr("src", "./image/<?php echo $_FILES['co_7v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['lo_1v3']['error'] ?>" == 0) {
+            $("#lo_1v3").attr("src", "./image/<?php echo $_FILES['lo_1v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['lo_2v3']['error'] ?>" == 0) {
+            $("#lo_2v3").attr("src", "./image/<?php echo $_FILES['lo_2v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['lo_3v3']['error'] ?>" == 0) {
+            $("#lo_3v3").attr("src", "./image/<?php echo $_FILES['lo_3v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['lo_4v3']['error'] ?>" == 0) {
+            $("#lo_4v3").attr("src", "./image/<?php echo $_FILES['lo_4v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['lo_5v3']['error'] ?>" == 0) {
+            $("#lo_5v3").attr("src", "./image/<?php echo $_FILES['lo_5v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['lo_6v3']['error'] ?>" == 0) {
+            $("#lo_6v3").attr("src", "./image/<?php echo $_FILES['lo_6v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['lo_7v3']['error'] ?>" == 0) {
+            $("#lo_7v3").attr("src", "./image/<?php echo $_FILES['lo_7v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['eo_1v3']['error'] ?>" == 0) {
+            $("#eo_1v3").attr("src", "./image/<?php echo $_FILES['eo_1v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['eo_2v3']['error'] ?>" == 0) {
+            $("#eo_2v3").attr("src", "./image/<?php echo $_FILES['eo_2v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['eo_3v3']['error'] ?>" == 0) {
+            $("#eo_3v3").attr("src", "./image/<?php echo $_FILES['eo_3v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['eo_4v3']['error'] ?>" == 0) {
+            $("#eo_4v3").attr("src", "./image/<?php echo $_FILES['eo_4v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['eo_5v3']['error'] ?>" == 0) {
+            $("#eo_5v3").attr("src", "./image/<?php echo $_FILES['eo_5v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['eo_6v3']['error'] ?>" == 0) {
+            $("#eo_6v3").attr("src", "./image/<?php echo $_FILES['eo_6v3']['name'] ?>");
+        }
+        if ("<?php echo $_FILES['eo_7v3']['error'] ?>" == 0) {
+            $("#eo_7v3").attr("src", "./image/<?php echo $_FILES['eo_7v3']['name'] ?>");
+        }
     </script>
 </body>
 
