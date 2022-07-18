@@ -347,15 +347,15 @@ btn.on('click', function(e) {
                
                   <div class=" card text-center h-100 shadow-0 ">
                     <a href="#">
-                    <img src="img/p5.jpeg" class="card-img-top"
+                    <img src="img/ppic1.jpeg" class="card-img-top"
                         alt="Hollywood Sign on The Hill" />
                     <div class="card-body">
                         <p class="fw-bold d-flex justify-content-center card-title">當期展覽</p>
                         <h5 class=" d-flex justify-content-center mt-5 card-text ">
-                          覆寫真實 - 臺灣當代攝影中的檔案與認同
+                        腦內文物展 |<br> 陳亘瑋
                         </h5>
                         <p class="d-flex justify-content-center card-text">
-                            <small class="text-muted">220409 - 220703</small>
+                            <small class="text-muted">210215 - 210230</small>
                         </p>
                         <!-- <input type="button" onclick="project(this)"
                             class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
@@ -370,15 +370,15 @@ btn.on('click', function(e) {
                 <div class="justify-content-center col-sm-7 col-md-6 col-lg-3">
                     <div class=" card text-center h-100 shadow-0 ">
                       <a href="#">
-                        <img src="img/p3.jpeg" class="card-img-top"
+                        <img src="img/ppic2.jpeg" class="card-img-top"
                             alt="Hollywood Sign on The Hill" />
                         <div class="card-body">
                             <p class="fw-bold d-flex justify-content-center card-title">當期展覽</p>
                             <h5 style ="word-break: break-all;" class=" d-flex justify-content-center mt-5 card-text ">
-                              島嶼溯遊－『台灣計劃』三十年回顧展
+                            Northern Icons |⁣<br>   Kvadrat⁣ 
                             </h5>
                             <p class="d-flex justify-content-center card-text">
-                                <small class="text-muted">220326 - 220626</small>
+                                <small class="text-muted">210305 - 210415</small>
                             </p>
                             <!-- <input type="button" onclick="project(this)"
                                 class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
@@ -393,16 +393,15 @@ btn.on('click', function(e) {
                 <div class="justify-content-center col-sm-7 col-md-6 col-lg-3">
                   <div class=" card text-center h-100 shadow-0 ">
                     <a href="#">
-                      <img src="img/p10.jpeg" class="card-img-top"
+                      <img src="img/ppic3.jpeg" class="card-img-top"
                           alt="Hollywood Sign on The Hill" />
                       <div class="card-body">
                           <p class="fw-bold d-flex justify-content-center card-title">常設展覽</p>
                           <h5 class=" d-flex justify-content-center mt-5 card-text ">
-                            跨‧交‧通
-                              | 「大阪商船株式會社臺北支店」攝影展
+                          賦 |<br>  袁旃個展  
                           </h5>
                           <p class="d-flex justify-content-center card-text">
-                              <small class="text-muted">210325</small>
+                              <small class="text-muted">210315 - 210510</small>
                           </p>
                           <!-- <input type="button" onclick="project(this)"
                               class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
@@ -417,15 +416,15 @@ btn.on('click', function(e) {
                   <div class="justify-content-center col-sm-7 col-md-6 col-lg-3">
                     <div class=" card text-center h-100 shadow-0 ">
                       <a href="#">
-                        <img src="img/p1.jpeg" class="card-img-top"
+                        <img src="img/ppic4.jpeg" class="card-img-top"
                             alt="Hollywood Sign on The Hill" />
                         <div class="card-body">
                             <p class="fw-bold d-flex justify-content-center card-title">當期展覽</p>
                             <h5 class=" d-flex justify-content-center mt-5 card-text ">
-                              揭幕 - 尋探立陶宛攝影中的認同
+                            林月霞 | <br>19622018
                             </h5>
                             <p class="d-flex justify-content-center card-text">
-                                <small class="text-muted">220501-220531</small>
+                                <small class="text-muted">210430 - 210510</small>
                             </p>
                             <!-- <input type="button" onclick="project(this)"
                                 class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
