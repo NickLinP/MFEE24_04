@@ -350,7 +350,7 @@ btn.on('click', function(e) {
                     <img src="img/p5.jpeg" class="card-img-top"
                         alt="Hollywood Sign on The Hill" />
                     <div class="card-body">
-                        <p class="fw-bold d-flex justify-content-center card-title">當季展覽</p>
+                        <p class="fw-bold d-flex justify-content-center card-title">當期展覽</p>
                         <h5 class=" d-flex justify-content-center mt-5 card-text ">
                           覆寫真實 - 臺灣當代攝影中的檔案與認同
                         </h5>
@@ -361,7 +361,7 @@ btn.on('click', function(e) {
                             class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
                             
                             <div class="card-footer">
-                              <small class="text-muted ">| A展區 |</small>
+                              <small class="text-muted ">| A空間 |</small>
                             </div>
                     </div>
                 </div>
@@ -373,7 +373,7 @@ btn.on('click', function(e) {
                         <img src="img/p3.jpeg" class="card-img-top"
                             alt="Hollywood Sign on The Hill" />
                         <div class="card-body">
-                            <p class="fw-bold d-flex justify-content-center card-title">當季展覽</p>
+                            <p class="fw-bold d-flex justify-content-center card-title">當期展覽</p>
                             <h5 style ="word-break: break-all;" class=" d-flex justify-content-center mt-5 card-text ">
                               島嶼溯遊－『台灣計劃』三十年回顧展
                             </h5>
@@ -384,7 +384,7 @@ btn.on('click', function(e) {
                                 class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
                                 
                                 <div class="card-footer">
-                                  <small class="text-muted ">| B展區 |</small>
+                                  <small class="text-muted ">| B空間 |</small>
                                 </div>
                         </div>
                     </div>
@@ -408,7 +408,7 @@ btn.on('click', function(e) {
                               class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
                               
                               <div class="card-footer">
-                                <small class="text-muted ">| C展區 |</small>
+                                <small class="text-muted ">| C空間 |</small>
                               </div>
                       </div>
                   </div>
@@ -420,7 +420,7 @@ btn.on('click', function(e) {
                         <img src="img/p1.jpeg" class="card-img-top"
                             alt="Hollywood Sign on The Hill" />
                         <div class="card-body">
-                            <p class="fw-bold d-flex justify-content-center card-title">當季展覽</p>
+                            <p class="fw-bold d-flex justify-content-center card-title">當期展覽</p>
                             <h5 class=" d-flex justify-content-center mt-5 card-text ">
                               揭幕 - 尋探立陶宛攝影中的認同
                             </h5>
@@ -431,7 +431,7 @@ btn.on('click', function(e) {
                                 class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
                                 
                                 <div class="card-footer">
-                                  <small class="text-muted ">| A展區 |</small>
+                                  <small class="text-muted ">| A空間 |</small>
                                 </div>
                         </div>
                     </div>
