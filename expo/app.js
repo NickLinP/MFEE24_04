@@ -38,6 +38,18 @@ app.get('/facility',function(req, res){
    }); 
 })
 
+app.get('/passevent',function(req, res){
+   // 查詢 info_test 表 
+   connection.query('SELECT * FROM passExpo', function (error, result){ 
+      if (error) {
+      console.log('[SELECT ERROR]',error.message);
+      return; 
+   }
+   res.send(result) ;
+   console.log('ok')
+    }); 
+ })
+
  //connection.end(); 複製代碼
 
 app.listen(3000, function () {

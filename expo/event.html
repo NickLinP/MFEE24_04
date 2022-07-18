@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>近期展覽 | 定義空間</title>
+  <title>所有展覽 | 定義空間</title>
 
    <!-- 字體設定 -->
   <!-- Font Awesome -->
@@ -63,12 +63,12 @@
      </nav>
     <!-- Current Start -->
     <div class="eCurrent">
-      <h2 class="topic">近期展覽</h2>
+      <h2 class="topic">當期展覽</h2>
       <div class="container">
-        <a href="/artist.html"><img src="./img/aba.jpeg" class="ecurrentPic" id="mainimg1"></a>        
+        <a href="/artist.html" class="testt"><img src="./img/banner1.jpeg" class="ecurrentPic" id="mainimg1"></a>        
         <div class="row givePadding">
-          <div class="acurrentL col-sm-8 col-md-10">
-            <h3>熱帶導讀｜OOO個展</h3>
+          <div class="col-sm-8 col-md-10">
+            <h3 class="acurrentL">MASKBOY｜Abei Liu</h3>
             <h5>2022.01.01 - 2022.02.01</h5>
           </div>
           <div class="acurrentR col-sm-4 col-md-2 ">
@@ -76,22 +76,22 @@
             <h5>個人展覽</h5>
           </div>
         </div>
-        <a href="/artist.html"><img src="./img/abb.jpeg" class="ecurrentPic" id="mainimg2"></a>
+        <a href="/artist.html"><img src="./img/banner2.jpeg" class="ecurrentPic" id="mainimg2"></a>
         <div class="row givePadding">
-          <div class="acurrentL col-sm-8 col-md-10">
-            <h3>熱帶導讀｜OOO個展</h3>
-            <h5>2022.01.01 - 2022.02.01</h5>
+          <div class="col-sm-8 col-md-10">
+            <h3 class="acurrentL">鬆弛愉快｜小林一毅</h3>
+            <h5>2022.02.01 - 2022.03.01</h5>
           </div>
           <div class="acurrentR col-sm-4 col-md-2 ">
             <h5>Exhibition</h5>
             <h5>個人展覽</h5>
           </div>
         </div>
-        <a href="/artist.html"><img src="./img/abc.jpeg" class="ecurrentPic" id="mainimg3"></a>       
+        <a href="/artist.html"><img src="./img/banner3.jpeg" class="ecurrentPic" id="mainimg3"></a>       
         <div class="row givePadding">
-          <div class="acurrentL col-sm-8 col-md-10">
-            <h3>熱帶導讀｜OOO個展</h3>
-            <h5>2022.01.01 - 2022.02.01</h5>
+          <div class="col-sm-8 col-md-10">
+            <h3 class="acurrentL">襪子與藝術｜+10・加拾</h3>
+            <h5>2022.03.01 - 2022.04.01</h5>
           </div>
           <div class="acurrentR col-sm-4 col-md-2 ">
             <h5>Exhibition</h5>
@@ -101,9 +101,9 @@
       </div>
     </div>
     <div class="ePass">
-      <h2 class="topic">過去展覽</h2>
+      <h2 class="topic">歷年展覽</h2>
       <div class="image-container">
-        <ul class="image-list" style="text-align: center;">
+        <ul class="image-list">
         </ul>
         <div class="observer"></div>
     </div>
@@ -191,23 +191,23 @@
     const imgContainer = document.querySelector('.image-container')
     const imageList = document.querySelector('.image-list')
     const loadingObserver = document.querySelector('.observer')
-    const IMAGE_PER_PAGE = 9
+    const IMAGE_PER_PAGE = 4
     let page = 1
     //響鈴條件：設定在哪些情況下，呼叫call back
     const options = {
         root: imgContainer,
-        rootMargin: "0px",
-        threshold: 0
+        rootMargin: "-10px",
+        threshold: 0    
     }
     // 載入圖片的函式
     const fetchImages = () => {
-        axios.get(`https://picsum.photos/v2/list?page=${page}&limit=${IMAGE_PER_PAGE}`)
+        axios.get(`http://localhost:3000/passevent?page=${page}&limit=${IMAGE_PER_PAGE}`)
             .then(res => {
                 res.data.forEach(image => {
-                    imageList.innerHTML += `<div class=row >
-      <li class="image-item"><img class="image" src=${image.download_url}></li>
-      <li class="image-content"><span>作品編號：${image.id}</span></li>
-      <li class="image-content"><span>作者：${image.author}</span></li></div>
+                    imageList.innerHTML += `<div class=row  >
+      <li class="image-item"><img class="image" src=${image.img}></li>
+      <li class="image-maincontent">${image.topic}</li>
+      <li class="image-content"> ${image.date}</li></div>
     `                
                 })
                 page += 1
