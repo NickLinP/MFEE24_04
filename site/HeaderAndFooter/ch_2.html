@@ -176,17 +176,75 @@
 
             </div>
 
-            <div class="mt-5">
-                <div class="text-center">
-                    <h2 class="fw-bold">停車格資訊</h2>
-                    <div class="body-border"></div>
-                    <div id="box3"></div>
-                </div>
+            <div class="mt-5 container">
+
+                <h2 class="fw-bold text-center">停車格資訊</h2>
+                <div class="body-border"></div>
+
+
+                <di v id="box3">
+                    <div>
+                        <img src="./img/停車場.png" style="max-width: 100%;" alt="">
+                    </div>
+
+                    <div id="img1">
+                        <img src="./img/指標2.png" id="image1" style="width: 150px;" alt="">
+                    </div>
+                    <div id="img2">
+                        <img src="./img/指標2.png" id="image2" style="width: 150px;" alt="">
+                    </div>
+                    <div id="img3">
+                        <img src="./img/指標2.png" id="image3" style="width: 150px;" alt="">
+                    </div>
+                    <div id="img4">
+                        <img src="./img/指標2.png" id="image4" style="width: 150px;" alt="">
+                    </div>
+                    <div id="img5">
+                        <img src="./img/指標2.png" id="image5" style="width: 150px;" alt="">
+                    </div>
+                    <div id="img6">
+                        <img src="./img/指標2.png" id="image6" style="width: 150px;" alt="">
+                    </div>
+                    <div id="img7">
+                        <img src="./img/指標2.png" id="image7" style="width: 150px;" alt="">
+                    </div>
+                    <div id="img8">
+                        <img src="./img/指標2.png" id="image8" style="width: 150px;" alt="">
+                    </div>
+                </di>
+
             </div>
         </div>
 
 
     </div>
+    <script>
+        $( document ).ready(function() {
+            var box_ids = ['image1', 'image2', 'image3', 'image4', 'image5', 'image6', 'image7', 'image8' ];
+            
+            function getRandomArrayElements(arr, count) {
+                var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+                while (i-- > min) {
+                    index = Math.floor((i + 1) * Math.random());
+                    temp = shuffled[index];
+                    shuffled[index] = shuffled[i];
+                    shuffled[i] = temp;
+                }
+                return shuffled.slice(min);
+            }
+            
+            setInterval(function(){
+                box_ids.forEach(function(value){
+                    $("#"+value).attr('src', './img/指標2.png');
+                });
+                var number = Math.floor(Math.random()*8)+1;
+                var redBoxes = getRandomArrayElements(box_ids, number);
+                redBoxes.forEach(function(value){
+                    $("#"+value).attr('src', './img/指標.png');
+                });
+            }, 5000); // 1秒變1次
+        });
+    </script>
 
 
 
@@ -262,7 +320,7 @@
                             <a href="#">展場介紹</a>
                             <a href="#">展場申請</a>
                             <a href="#">展覽介紹</a>
-                            <a href="#"><img src="img/LOGO.png" alt="LOGO" width="70vh"></a>
+                            <a href="#"><img src="./img/footer.png" alt="LOGO" width="70vh"></a>
                             <a href="#">咖啡輕食</a>
                             <a href="#">網路商店</a>
                             <a href="#">交通資訊</a>

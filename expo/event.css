@@ -7,6 +7,7 @@ body{
 }
 .wrapper{
     overflow: hidden;
+    margin: 0   auto ;
 }
 /* Public version */
 
@@ -15,7 +16,7 @@ body{
     margin-bottom: 30px;
   }
 .topic{
-    height: 8vh;
+    height: 10vh;
     padding-left: 8%; 
     margin: 30px 0;
     font-weight: bold;
@@ -23,22 +24,39 @@ body{
     align-items: flex-end;
   }
 
+
 /* Current */
+
 .eCurrent .ecurrentPic{
     height: 75vh;
-    width: 100%;
-    background-color:rgba(0,0,0,0.1) ;
+    width: 100%; 
+    margin-top: 30px;
 }
+.eCurrent .ecurrentPic:hover{
+    filter:brightness(65%); 
+    transform: scale(1.02);
+}
+
 .eCurrent .acurrentR{
     display: flex;
     flex-direction: column;
     justify-content: end;
     text-align: end;
 }
+.eCurrent .acurrentL{
+    margin-bottom: 15px;
+}
+
+/* Pass */
+.ePass .image-list{
+    text-align: center;
+    padding: 0 30px;
+}
+
 .ePass ul,li{
     list-style-type: none;
     padding: 0;
-    margin:0 5vh;
+    margin:0 ;
 }
 .ePass .image-container {
     background: #fff;
@@ -49,26 +67,25 @@ body{
 }
 .ePass .image-item {
     position: relative;
+    padding: 40px 50px;
 }
 .ePass .row{
     display: inline-block;
+    width:350px;
+    margin-bottom:50px ;
 }
-
-/* .ePass .image-item::before {
-    position: absolute;
-    content: 'Image Loading';
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #708090;
-    font-weight: bold;
-    z-index: -1;
-} */
 .ePass .image {
-    width: 100%;
-    height: 250px;
+    
+    height: 250px;  
     object-fit: cover;
     display: block;
+}
+.ePass .image-maincontent{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.ePass .image-content{
+    font-size: 18px;
 }
 .ePass .observer {
     margin: 15px auto;
@@ -84,3 +101,6 @@ body{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+

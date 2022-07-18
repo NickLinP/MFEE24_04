@@ -23,8 +23,61 @@
 }
 
 #box3 {
-    width: 1100px;
-    height: 600px;
     margin: 20px auto;
-    background-color: slategrey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#img1,
+#img2,
+#img3,
+#img4,
+#img5,
+#img6,
+#img7,
+#img8 {
+    position: absolute;
+
+}
+
+#img1 {
+    margin-left: 460px;
+    margin-bottom: 380px;
+}
+
+#img2 {
+    margin-left: 130px;
+    margin-bottom: 380px;
+}
+
+#img3 {
+    margin-right: 200px;
+    margin-bottom: 380px;
+}
+
+#img4 {
+    margin-right: 535px;
+    margin-bottom: 380px;
+}
+
+#img5 {
+    margin-right: 535px;
+    margin-top: 380px;
+}
+
+#img6 {
+    margin-right: 200px;
+    margin-top: 380px;
+}
+
+#img7 {
+    margin-left: 130px;
+    margin-top: 380px;
+}
+
+#img8 {
+    margin-left: 460px;
+    margin-top: 380px;
 }

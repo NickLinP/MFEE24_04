@@ -11,20 +11,16 @@ body{
 
 /* Public version */
 .givePadding{
-  margin-top: 60px; 
-  margin-bottom: 30px;
+  margin: 30px auto ; 
 }
 
 /* Head */
 
-.ahead .aheadR{
-   display: flex;
-   flex-direction: column;
-   justify-content: end;
-}
-.ahead .aheadPic{
-    height: 90vh;
+.aheadPic{
+    padding-top: 60px;
+    height: 75vh;
     width: 100%;  
+    margin: 0 auto;
 }
 
 /* Text */
