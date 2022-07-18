@@ -485,7 +485,7 @@ if($_SESSION["date_s"] !== "" & $_SESSION["period"] !== ""){
                             <input name="telephone" type="text" maxlength="10" pattern="09\d{8}" placeholder="例如:09xxxxxxxx" required>
                             <h6>謝謝<span id="booker">您</span>的填寫！<br>
                                 在送出前，請再次確認資訊是否填寫正確。<br>
-                                期待您的光臨
+                                期待您的光臨。
                             </h6>
                         </div>
                         <div class="modal-footer">
