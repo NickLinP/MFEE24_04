@@ -1,11 +1,14 @@
 <?php
 session_start();
 include("mysql.php");
-if($_SESSION["date_s"] !== "" & $_SESSION["period"] !== ""){
-    $sql = "SELECT `date_s`,`period` FROM 訂位資料 GROUP BY `date_s`, `period` HAVING SUM(`number`) > 10
-        AND date_s = '".$_SESSION["date_s"]."' AND period = '".$_SESSION["period"]."'";
-    $run = mysqli_query($link, $sql);
-}
+// if($_SESSION["date_s"] !== "" & $_SESSION["period"] !== ""){
+//     $sql = "SELECT `date_s`,`period` FROM 訂位資料 GROUP BY `date_s`, `period` HAVING SUM(`number`) > 10
+//         AND date_s = '".$_SESSION["date_s"]."' AND period = '".$_SESSION["period"]."'";
+//     $run = mysqli_query($link, $sql);
+// }
+$sql = "SELECT `date_s`,`period` FROM 訂位資料 GROUP BY `date_s`, `period` HAVING SUM(`number`) > 10
+        AND date_s = '2022-07-30'";
+        $run = mysqli_query($link, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -485,7 +488,7 @@ if($_SESSION["date_s"] !== "" & $_SESSION["period"] !== ""){
                             <input name="telephone" type="text" maxlength="10" pattern="09\d{8}" placeholder="例如:09xxxxxxxx" required>
                             <h6>謝謝<span id="booker">您</span>的填寫！<br>
                                 在送出前，請再次確認資訊是否填寫正確。<br>
-                                期待您的光臨。
+                                期待您的光臨
                             </h6>
                         </div>
                         <div class="modal-footer">
@@ -701,13 +704,14 @@ if($_SESSION["date_s"] !== "" & $_SESSION["period"] !== ""){
         }
         // 以上表單提交後畫面不跳轉
 
-        // 菜單樣式
+        // 滑鼠移到菜單改變樣式
         $('.col-8').mouseenter(function() {
             $('.col-8').removeClass('col-8-active');
             $(this).addClass('col-8-active');
         });
-        // 以上菜單樣式
+        // 以上滑鼠移到菜單改變樣式
 
+        // 後台文字菜單替換
         $('#co_1').text('<?php echo $_POST["co_1"] ?>');
         $('#co_1v1').text('<?php echo $_POST["co_1v1"] ?>');
         $('#co_1v2').text('<?php echo $_POST["co_1v2"] ?>');
@@ -771,8 +775,10 @@ if($_SESSION["date_s"] !== "" & $_SESSION["period"] !== ""){
         $('#eo_7').text('<?php echo $_POST["eo_7"] ?>');
         $('#eo_7v1').text('<?php echo $_POST["eo_7v1"] ?>');
         $('#eo_7v2').text('<?php echo $_POST["eo_7v2"] ?>');
+        // 以上後台文字菜單替換
 
 
+        // 後台圖片替換
         if ("<?php echo $_FILES['co_1v3']['error'] ?>" == 0) {
             $("#co_1v3").attr("src", "./image/<?php echo $_FILES['co_1v3']['name'] ?>");
         }
@@ -836,6 +842,7 @@ if($_SESSION["date_s"] !== "" & $_SESSION["period"] !== ""){
         if ("<?php echo $_FILES['eo_7v3']['error'] ?>" == 0) {
             $("#eo_7v3").attr("src", "./image/<?php echo $_FILES['eo_7v3']['name'] ?>");
         }
+        // 以上後台圖片替換
     </script>
 </body>
 
