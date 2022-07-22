@@ -22,10 +22,10 @@ $('#twzipcode select').css({
 //  購買人同收件人功能
 function copyinfo() {
     if (event.currentTarget.checked) {
-        $("#InputLastname").attr("value", "小明");
-        $("#InputFirstname").attr("value", "王");
-        $("#InputEmail").attr("value", "test@gmail.com");
-        $("#PhoneNumber").attr("value", "0912345678");
+        $("#InputLastname").attr("value", "冠中");
+        $("#InputFirstname").attr("value", "吳");
+        $("#InputEmail").attr("value", "guanzhong199806@gmail.com");
+        $("#PhoneNumber").attr("value", "0919073551");
     } else {
         $(".attrDisabled input").removeAttr("value");
     }
@@ -92,12 +92,14 @@ $("#selectPay").change(function () {
 function deletePD(obj) {
     var price = $("#minprice").text();
     var CarPDdiv = $(obj).parent();
-    var deleteNum = $(".ttval", CarPDdiv).text()
+    var deleteNum = $(".ttval", CarPDdiv).text();
+    var onepdprice = $(".onepdprice", CarPDdiv).text();
     var deliverPrice = $("#deliverPrice").text();
+
     //  刪除點選商品
     $(obj).parent().remove();
-    $("#minprice").text(Number(price) - Number(deleteNum) * 1200);
-    $("#maxprice").text(Number(price) - Number(deleteNum) * 1200 + Number(deliverPrice));
+    $("#minprice").text(Number(price) - Number(deleteNum) * Number(onepdprice));
+    $("#maxprice").text(Number(price) - Number(deleteNum) * Number(onepdprice) + Number(deliverPrice));
     // console.log($("#minprice").text());
 
     // 結帳頁刪除修改

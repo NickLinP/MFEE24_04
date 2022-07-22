@@ -3,7 +3,7 @@
    justify-content:center; 左右置中 */
    
 #bigimg {
-    width: 500px;
+    width: auto;
     height:500px;
 }
 .productBox{

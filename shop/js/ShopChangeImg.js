@@ -238,7 +238,7 @@ $("a#idP34").mouseout(function () {
 });
 //35
 $("a#idP35").mouseover(function () {
-    $("#idP35 img").attr("src", "../image/商品圖文/2_Book/2.jpg");
+    $("#idP35 img").attr("src", "../image/沉醉者2.jpg");
 });
 $("a#idP35").mouseout(function () {
     $("#idP35 img").attr("src", "../image/沉醉者2.jpg");
