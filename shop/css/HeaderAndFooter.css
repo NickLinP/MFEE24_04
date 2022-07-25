@@ -17,9 +17,7 @@ body {
     position: relative;
     -webkit-text-size-adjust: none;
     display: flex;
-    min-height: 100vh;
-     
-      
+    min-height: 100vh;   
 }
 
 a,
@@ -76,20 +74,19 @@ nav:not(.mm-menu) {
 
 .icon{
   position:absolute;
-  right:9rem;
+  right:11rem;
   top:3px;
 
 }
 
 .icontwo{
   position:absolute;
-  right:5.5rem;
+  right:7rem;
   top:3px;
-
 }
 
 .icon::after{
-    width: 50px;
+    width: 30px;
 }
 
 .logo{
