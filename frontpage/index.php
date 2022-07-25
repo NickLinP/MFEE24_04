@@ -15,7 +15,9 @@ include 'header.php';
     <link type="text/css" rel="stylesheet" href="css/demo.css" />
     <link type="text/css" rel="stylesheet" href="css/loading.css" />
     <link type="text/css" rel="stylesheet" href="../dist/mmenu.css" />
-    <link type="text/css" rel="stylesheet" href="./buttonn.css" />
+
+    <!-- 按鈕 -->
+    <link type="text/css" rel="stylesheet" href="./button_space.css" />
     <link type="text/css" rel="stylesheet" href="css/backtotop.css" />
 
     
@@ -48,20 +50,6 @@ include 'header.php';
     <!-- 輪播圖 -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic" rel="stylesheet" />
 
-   
-
-<!-- 
-    <script>
-        (function (d) {
-            var config = {
-                kitId: 'wfy1sxb',
-                scriptTimeout: 3000,
-                async: true
-            },
-                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
-        })(document);
-    </script> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
@@ -76,10 +64,8 @@ include 'header.php';
 
 <body>
 
-<!-- 
-    場地格局設置滿版 
-    多設計一個scroll down button?
--->
+<!-- 回到最上面按鈕 -->
+
 <a id="button"></a>
 <script>
 var btn = $('#button');
@@ -99,15 +85,17 @@ btn.on('click', function(e) {
 
 </script>
 
+<!-- 網頁內容 -->
+
 <div id="frontpage">
         <div id="page">
             <br>
             <div id="search-menu">
               <div class="wrapper">
-                  <!-- <form id="form" action="#" method=""><input id="popup-search" 
-                    type="text" name="u" placeholder="Type here to search" /> -->
                     
-                   
+        
+<!-- 搜尋用 -->
+
     <form action="search.php" method="POST">
     <input type="text" name ="search" placeholder="Search">
 
@@ -116,7 +104,7 @@ btn.on('click', function(e) {
               </div>
               </div>
          
-<!-- 搜尋用 -->
+<!-- 搜尋用_文章 -->
         
 <div class="article-container " id="frontpage" style="display: none">
     <?php
@@ -140,7 +128,8 @@ btn.on('click', function(e) {
 </div>
 
 
-            <!-- 導覽列 -->
+  <!-- 導覽列 -->
+
             <div id="header">
              
                 <a href="#menu"><span></span></a>
@@ -169,7 +158,7 @@ btn.on('click', function(e) {
         </nav>
 
         
-        <!-- mmenu scripts -->
+        <!-- 導覽列 js -->
         <script src="../dist/mmenu.js"></script>
         <script>
             document.addEventListener(
@@ -299,11 +288,9 @@ btn.on('click', function(e) {
         </div>
         </div>
           </div>
-        <!-- google地圖 -->
+ <!-- google地圖 -->
 
-<div id="content reveal">
-  <!--    <div class="container"> -->
-  
+  <div id="content reveal">
   <div class="container">
   <div class="row justify-content-center">
   <div class="col-md-6 ">
@@ -322,14 +309,11 @@ btn.on('click', function(e) {
   
   </div>
   <div class="col-md-6 ">
-    <!-- <img  src="img/LOGO.png" alt="" width="100vh"> -->
-  
-  <p class="">
-    
-    <!-- A collaborative platform for art, <br>books and pop-up events.…and a coffee bar.<br> -->
+
+  <p >
     A place that combines exhibition and café,<br>
     Provide people with a artistic space.<br>
-<br>
+  <br>
     一處結合展覽文化與飲食享受，<br>以藝文氣息在都市鬧區提供人們<br>一個呼吸的空檔。
   <br></p>
   
@@ -357,9 +341,6 @@ btn.on('click', function(e) {
                         <p class="d-flex justify-content-center card-text">
                             <small class="text-muted">210215 - 210230</small>
                         </p>
-                        <!-- <input type="button" onclick="project(this)"
-                            class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
-                            
                             <div class="card-footer">
                               <small class="text-muted ">| A空間 |</small>
                             </div>
@@ -380,9 +361,6 @@ btn.on('click', function(e) {
                             <p class="d-flex justify-content-center card-text">
                                 <small class="text-muted">210305 - 210415</small>
                             </p>
-                            <!-- <input type="button" onclick="project(this)"
-                                class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
-                                
                                 <div class="card-footer">
                                   <small class="text-muted ">| B空間 |</small>
                                 </div>
@@ -403,9 +381,6 @@ btn.on('click', function(e) {
                           <p class="d-flex justify-content-center card-text">
                               <small class="text-muted">210315 - 210510</small>
                           </p>
-                          <!-- <input type="button" onclick="project(this)"
-                              class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
-                              
                               <div class="card-footer">
                                 <small class="text-muted ">| C空間 |</small>
                               </div>
@@ -426,9 +401,6 @@ btn.on('click', function(e) {
                             <p class="d-flex justify-content-center card-text">
                                 <small class="text-muted">210430 - 210510</small>
                             </p>
-                            <!-- <input type="button" onclick="project(this)"
-                                class="mx-4 mt-4 button btn btn-default " value="了解更多"> -->
-                                
                                 <div class="card-footer">
                                   <small class="text-muted ">| A空間 |</small>
                                 </div>
@@ -439,11 +411,13 @@ btn.on('click', function(e) {
             
 
  <!-- 場地格局 -->
+
 <br><br><br>
 </div>
 <div class="container-fluid reveal ">
 <div class="row">
 <div class="col-md-8">
+
 <!-- Background image -->
 <div
 style="
@@ -457,7 +431,7 @@ background-repeat: no-repeat;
 -moz-background-size: cover;
 "
 ></div>
-<!-- Background image -->
+
 </div>
 <div class="col-md-4">
     <div class="row">
@@ -468,8 +442,6 @@ background-repeat: no-repeat;
             <h4>A展區｜功能活動區</h4>
             <h4>B展區｜工作空間</h4>
             <h4>C展區｜展覽空間</h4>
-            <!-- <input type="button" onclick="project(this)" class="button  mealbtn btn btn-dark mt-1"
-                              value="預約場勘"> -->
     <button class="learn-more">
     <span class="circle" aria-hidden="true">
     <span class="icon arrow"></span>
@@ -485,13 +457,11 @@ background-repeat: no-repeat;
 <!-- google地圖 -->
 
 <div id="content reveal">
-<!--    <div class="container"> -->
 <br><br><br>
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-md-6 ">
 <span class="float-md-end mb-3 ms-md-3">
-  <!-- <img src="img/螢幕擷取畫面 (43).png" class="img-fluid" alt="Wild Landscape" /> -->
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.556409097462!2d121.51986251456346!3d25.04912378396527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96e50850aa9%3A0x3f3386c5e17b6e7b!2zMTA0OTHlj7DljJfluILkuK3lsbHljYDkuK3lsbHljJfot6_kuIDmrrU1M-W3tzbomZ8!5e0!3m2!1szh-TW!2stw!4v1657766701856!5m2!1szh-TW!2stw" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </span>
 
@@ -619,7 +589,7 @@ service@veneu.tw</p>
           <script type="text/javascript" src="./javascript.js"></script>
 
 
-  <!-- loading page        -->
+  <!-- loading page  -->
   <script>
   function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 500);
@@ -629,17 +599,17 @@ service@veneu.tw</p>
             window.clearInterval(intervalID);
             callback.call(this);
         }
+        }
     }
-}
 
-function show(id, value) {
+    function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
-}
+    }
 
-onReady(function () {
+    onReady(function () {
     show('page', true);
     show('loading', false);
-});
+    });
 
 </script>
 
