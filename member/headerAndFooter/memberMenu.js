@@ -5,6 +5,8 @@ var memberMenu = `
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
                 <style>
+
+                
                     .memberNavBar {
                         color: white;
                         /* text-align: center; */
@@ -40,7 +42,7 @@ var memberMenu = `
                     </div>
                     <div >
                         <i class="fa-solid fa-house"></i>
-                        <a href="./rent.html" style='text-decoration:none;'>場地租借紀錄</a>
+                        <a href="./rent.html" style='text-decoration:none;'>空間申請紀錄</a>
                     </div>
                     <div  style='margin-bottom:20%;'>
                         <i class="fa-regular fa-calendar-check"></i>

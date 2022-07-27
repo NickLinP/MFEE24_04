@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- test -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -119,7 +119,9 @@
                 <div>
                     <p class="h2">餐飲訂位紀錄</p>
                 </div>
+
                 <hr>
+
                 <div class="search h4">
                     <span>依日期搜尋</span>
                     <input type="date" class="dateInput ">
@@ -141,54 +143,55 @@
                 </table>
             </div>
         </div>
+    </div>
+    
+    <footer>
+        <script src="../headerAndFooter/footer.js"></script>
+    </footer>
 
-        <footer>
-            <script src="../headerAndFooter/footer.js"></script>
-        </footer>
-
-        <!-- 訂位紀錄帶出 -->
-        <script>
-            $(document).ready(function () {
-                var userId = sessionStorage.getItem('userId');
-                var dataToServer = { userId: userId };
-                $.ajax({
-                    type: "post",
-                    url: "http://localhost:3000/member/coffee",
-                    data: JSON.stringify(dataToServer),
-                    contentType: "application/json",
-                    success: function (e) {
-                        console.log(e);
-                        console.log(e.length);
-                        for (var i = 0; i < e.length; i++) {
-                            var reserveDate = e[i].reserveDate.substr(0, 10);
-                            var startTime = e[i].startTime;
-                            var employees = e[i].employees;
-                            var name = e[i].name;
-                            var phoneNumber = e[i].phoneNumber;
-                            // console.log(reserveDate);
-                            // console.log(startTime);
-                            // console.log(employees);
-                            // console.log(name);
-                            // console.log(phoneNumber);
-                            $('#title').after(
-                                `<tr class="h4">
+    <!-- 訂位紀錄帶出 -->
+    <script>
+        $(document).ready(function () {
+            var userId = sessionStorage.getItem('userId');
+            var dataToServer = { userId: userId };
+            $.ajax({
+                type: "post",
+                url: "http://localhost:3000/member/coffee",
+                data: JSON.stringify(dataToServer),
+                contentType: "application/json",
+                success: function (e) {
+                    console.log(e);
+                    console.log(e.length);
+                    for (var i = 0; i < e.length; i++) {
+                        var reserveDate = e[i].reserveDate.substr(0, 10);
+                        var startTime = e[i].startTime;
+                        var employees = e[i].employees;
+                        var name = e[i].name;
+                        var phoneNumber = e[i].phoneNumber;
+                        // console.log(reserveDate);
+                        // console.log(startTime);
+                        // console.log(employees);
+                        // console.log(name);
+                        // console.log(phoneNumber);
+                        $('#title').after(
+                            `<tr class="h4">
                             <td>${reserveDate}</td>
                             <td>${startTime}</td>
                             <td>${employees}人</td>
                             <td>${name}</td>
                             <td>${phoneNumber}</td>
                             </tr>`
-                            )
-                        }
+                        )
                     }
-                })
-            });
-        </script>
+                }
+            })
+        });
+    </script>
 
-        <!-- 會員側欄高度計算 -->
-        <script src="../headerAndFooter/memberMeunCal.js"></script>
-        <!-- 會員側欄資料渲染 -->
-        <script src="../headerAndFooter/memberMenuData.js"></script>
+    <!-- 會員側欄高度計算 -->
+    <script src="../headerAndFooter/memberMeunCal.js"></script>
+    <!-- 會員側欄資料渲染 -->
+    <script src="../headerAndFooter/memberMenuData.js"></script>
 </body>
 
 </html>

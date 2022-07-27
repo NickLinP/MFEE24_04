@@ -42,45 +42,28 @@
                         <hr style="margin-bottom: 2%;">
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <label for="firstName" class="form-label">名稱</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Valid first name is required.
-                                </div>
+                                <label for="firstName" class="form-label" style="font-size: 24px;">名稱</label>
+                                <input type="text" class="form-control" id="firstName" required style="font-size: 24px; border: 2px solid rgb(179, 178, 178);">
                             </div>
 
                             <div class="col-sm-6">
-                                <label for="lastName" class="form-label">姓氏</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
+                                <label for="lastName" class="form-label" style="font-size: 24px;">姓氏</label>
+                                <input type="text" class="form-control" id="lastName" required style="font-size: 24px; border: 2px solid rgb(179, 178, 178);">
                             </div>
 
                             <div class="col-12">
-                                <label for="email" class="form-label">Email <span class="text-muted"></span></label>
-                                <input type="email" class="form-control" id="email" placeholder="test@google.com"
-                                    readonly>
-                                <div class="invalid-feedback">
-                                    請輸入電子信箱地址
-                                </div>
+                                <label for="email" class="form-label" style="font-size: 24px;">Email</label>
+                                <input type="email" class="form-control" id="email"readonly style="font-size: 24px; border: 2px solid rgb(179, 178, 178);">
                             </div>
 
                             <div class="col-12">
-                                <label for="phoneNumber" class="form-label">聯絡電話<span class="text-muted"></span></label>
-                                <input type="text" class="form-control" id="phoneNumber">
-                                <div class="invalid-feedback">
-                                    聯絡電話
-                                </div>
+                                <label for="phoneNumber" class="form-label" style="font-size: 24px;">聯絡電話</label>
+                                <input type="text" class="form-control" id="phoneNumber" style="font-size: 24px; border: 2px solid rgb(179, 178, 178);">
                             </div>
 
                             <div class="col-12">
-                                <label for="birthDate" class="form-label">出生日期</label>
-                                <input type="date" class="form-control" id="birthDate" placeholder="1993/09/12"
-                                    required>
-                                <div class="invalid-feedback">
-                                    請選擇出生年月日
-                                </div>
+                                <label for="birthDate" class="form-label" style="font-size: 24px;">出生日期</label>
+                                <input type="date" class="form-control" id="birthDate" required style="font-size: 24px; border: 2px solid rgb(179, 178, 178);">
                             </div>
 
                             <!-- 縣市選單 -->
@@ -88,15 +71,15 @@
                             <script src="../_js/twZipCode/jquery.twzipcode.min.js"></script>
                             <div id="twzipcode">
                                 <div>
-                                    <label for="country" class="form-label">聯絡地址</label>
+                                    <label for="country" class="form-label" style="font-size: 24px;">聯絡地址</label>
                                     <div class="zipCode col-12 country" data-role="county" data-value="110"
-                                        style="display: inline-block;">
+                                        style="display: inline-block;font-size: 24px;">
                                     </div>
                                 </div>
 
                                 <div style="margin-top: 1.5%;">
                                     <div class="zipCode col-12 township" data-role="district" data-value="臺北市"
-                                        style="display: inline-block;"></div>
+                                        style="display: inline-block;font-size: 24px;"></div>
                                 </div>
 
                                 <div data-role="zipcode" data-value="信義區" style="display: none;"></div>
@@ -104,14 +87,14 @@
 
                             <div class="col-12">
 
-                                <input type="text" class="form-control" id="address" placeholder="請填寫完整地址">
+                                <input type="text" class="form-control" id="address" placeholder="請填寫完整地址" style="font-size: 24px; border: 2px solid rgb(179, 178, 178);">
                             </div>
                         </div>
 
                         <hr class="my-4">
 
                         <button id="modify" class="w-100 btn btn-lg" type="button"
-                            style="background-color: gray;">確認修改</button>
+                            style="background-color: black;"><span style="color: white;font-size: 24px;">確認修改</span></button>
                 </div>
                 </form>
             </div>
@@ -129,7 +112,9 @@
         $('#twzipcode').twzipcode();
         $('.zipCode > select').addClass('form-select');
         $('.country > select').attr('id', 'country');
+        $('.country > select').attr('style', 'font-size:24px; border: 2px solid rgb(179, 178, 178);');
         $('.township > select').attr('id', 'township');
+        $('.township > select').attr('style', 'font-size:24px; border: 2px solid rgb(179, 178, 178);');
     </script>
 
     <!-- 讀回會員資料渲染到表格內 -->
@@ -173,6 +158,7 @@
             var result = $('#twzipcode').twzipcode('get', ['county', 'district']);  // 以陣列傳入
             var getCountry = '';
             var gettownship = '';
+
             // Callback
             $('#twzipcode').twzipcode('get', function (country, district, zipcode) {
                 console.log(country);   // 縣市
@@ -206,6 +192,7 @@
                     console.log('會員資料修改完成');
                 }
             })
+            alert('會員資料修改完成');
         })
     </script>
 

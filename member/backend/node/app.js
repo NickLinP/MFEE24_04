@@ -50,6 +50,7 @@ app.post('/test', function (req, res) {
     res.send('ok');
 })
 
+// 圖形驗證碼套件
 var svgCaptcha = require('svg-captcha');
 var data = svgCaptcha.create({
     //options 
@@ -93,12 +94,15 @@ app.post('/login/token', function (req, res) {
                         id: rows[i].id
                     }
                     res.send(userProfile);
+                    // 當找到重複的帳號後就中斷迴圈
                     break;
                 }
             }
 
+            // // 新增資料的程式，如果重複的flag觸發則需要return，否則會二次出發.send，會有錯誤訊息
             if (duplicatedAccount == true) {
                 return;
+                // 資料庫沒有該筆帳號的紀錄，因此會執行註冊並且回傳該id到網頁
             } else {
                 conn.query(
                     "INSERT INTO `member` (`firstname`, `lastname`, `email`, `password`) VALUES (?, ?, ?, ?);",
@@ -117,6 +121,7 @@ app.post('/login/token', function (req, res) {
 
 // 登入功能
 app.post('/login', function (req, res) {
+    // 收到帳號密碼後到資料庫內進行比對
     var inputEmail = req.body.email;
     var inputPassword = req.body.password;
     var userPassword = '';
@@ -125,19 +130,29 @@ app.post('/login', function (req, res) {
     // 比對帳號 (email)
     conn.query("SELECT email , password , id FROM `member`;", [],
         function (err, rows) {
+            // console.log(JSON.stringify(rows[0].id));
+            // console.log(`第1組 ${JSON.stringify(rows[1])}`);
             var arrIdx = 0;
             var emailErr = false;
             var emailCheck = false;
             var passwordCheck = false;
 
+            // idx是從0開始，因此必須+1才是真正的id
             rows.forEach(function (item, idx) {
+                // 如果item的內容轉換成JSON格式，會被加上雙引號
+                // 但輸入的帳號進來伺服器並不會有雙引號
+                // 因此如果傳換了item成JSON會發生比較永遠錯誤
                 var serverEmail = item.email;
                 emailErr = false;
                 if (inputEmail == serverEmail) {
                     console.log('帳號正確');
                     emailCheck = true;
+                    // 紀錄是第幾筆資料正確，驗證密碼時候會用到
                     arrIdx = idx;
+                    // 紀錄在資料庫的id是多少，發送token會用到
+                    // userId = idx + 1;
                     userId = rows[idx].id;
+                    // 紀錄符合的email密碼
                     userPassword = rows[idx].password;
                 }
             })
@@ -158,6 +173,8 @@ app.post('/login', function (req, res) {
             }
             // 如果密碼也正確，回傳登入確認以及該帳號的id到前端
             if (emailCheck == true & passwordCheck == true) {
+                // // 特別注意，原先id型態在資料庫定義為int
+                // // 但是使用.send無法傳送數值，因此必須轉換成字串
                 var data = {
                     confirmLogin: 'ok',
                     id: userId.toString()
@@ -170,13 +187,22 @@ app.post('/login', function (req, res) {
 })
 
 
-
+// 跳轉到會員頁面後將該會員資料從session的id讀取出來
 app.post('/member/profile', function (req, res) {
+    // 會員頁POST過來的資料是Objet的{ userId: '"2"' }
+    // 特別注意到value是"2"，並非表象認為的單純字串2，而是帶雙引號的字串"2"
+    // 透過JSON.parse轉換才可以得到單純的字串2，這樣子丟進.query執行才有效果
+    // 可以把JSON.parser取消，並且觀察下面兩個console.log的結果仔細判斷
     var tokenId = JSON.parse(req.body.userId);
     // console.log(typeof (tokenId))
     // console.log(tokenId)
     conn.query("SELECT * FROM `member` WHERE id = ?;", [tokenId],
         function (err, rows) {
+            // 必需要透過JSON.stringify讀取rows的內容，否則會出錯
+            // rows必須要[0]，因為rows的內容是一個完整的陣列，如果不加上
+            // [0]會訪問到的是最外層的陣列，非要讀取的單筆會員資料
+            // 但如果是要訪問rows[0]內某一筆資料可以直接訪問，不需要再JSON轉換
+            // 轉換後還會有""的出現，容易造成麻煩
             console.log(JSON.stringify(rows[0]));
             var userProfile = {
                 id: rows[0].id,
@@ -226,10 +252,12 @@ app.post('/member/signUp', function (req, res) {
                     duplicatedAccount = true;
                     console.log('帳號重複');
                     res.send('duplicated_account');
+                    // 當找到重複的帳號後就中斷迴圈
                     break;
                 }
             }
 
+            // 新增資料的程式，如果重複的flag觸發則需要return，否則會二次出發.send，會有錯誤訊息
             if (duplicatedAccount == true) {
                 return;
                 // 將資料寫入資料庫，完成註冊會員
@@ -249,6 +277,7 @@ app.post('/member/signUp', function (req, res) {
 
 
 // 會員資料修改
+// UPDATE `member` SET `firstname` = '許', `lastname` = '天富', `email` = 'rich@gmail.com', `password` = 'aaa123456', `birthdate` = '2015-06-11', `country` = '10', `township` = '11', `address` = '南區' WHERE `member`.`id` = 11;
 app.put('/member/dataUpdate', function (req, res) {
     var userId = JSON.parse(req.body.userId);
     var firstName = req.body.firstName;
@@ -274,10 +303,12 @@ app.put('/member/dataUpdate', function (req, res) {
 // 咖啡廳訂位紀錄讀取
 app.post('/member/coffee', function (req, res) {
     var userId = JSON.parse(req.body.userId);
+    // 透過id尋找該會員的email
     conn.query("SELECT * FROM `member` WHERE id = ?;",
         [userId],
         function (err, rows) {
             var email = rows[0].email;
+            // 透過email列出所有紀錄
             conn.query("SELECT * FROM `coffee_reserve` WHERE email = ? ORDER BY reserveDate;",
                 [email],
                 function (err, rows) {
@@ -295,6 +326,7 @@ app.post('/member/rent', function (req, res) {
         function (err, rows) {
             var email = rows[0].email;
             console.log(email);
+            // 透過email列出所有紀錄
             conn.query("SELECT * FROM `rent_site` WHERE email = ? ORDER BY reserveDate;",
                 [email],
                 function (err, rows) {

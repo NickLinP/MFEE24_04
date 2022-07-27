@@ -27,21 +27,23 @@
 
         window.onload = function () {
             google.accounts.id.initialize({
-                client_id: "",
+                // 輸入在google API申請的client id
+                client_id: "392123110449-u7593pasuhr06au41cagudg2e341mhka.apps.googleusercontent.com",
+                // 會執行handleCredentialResponse這個function
                 callback: handleCredentialResponse
             });
             google.accounts.id.renderButton(
                 document.getElementById("btnGoogleLogin"),
-                { theme: "outline", size: "large" }  // customization attributes
+                // 自定義外觀屬性，透過物件的方式賦值
+                { theme: "outline", size: "large" }
             );
-            google.accounts.id.prompt(); // also display the One Tap dialog
+            google.accounts.id.prompt();
         }
     </script>
 
     <style>
         .logAndSign li {
             float: left;
-            /* border: 1px solid black; */
             text-align: center;
             list-style: none;
             padding: 5px;
@@ -55,6 +57,7 @@
             text-align: center;
             padding-top: 20%;
         } */
+
 
         .btn {
             background-color: #FFB80C;
@@ -125,64 +128,62 @@
         <script src="../headerAndFooter/header.js"></script>
     </header>
 
-    <div class="loginContainer">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-md-7 col-lg-8" style="margin: 0 auto; ">
-                    <form class="needs-validation">
-                        <div class="row g-3">
 
-                            <div class="col-12">
-                                <div style="display: inline-block; border:1px solid rgb(209, 209, 209); padding: 5px;"
-                                    class="logAndSign h2">
-                                    <li style="color: white; background-color:black; "><span>會員登入</span></li>
-                                    <li><a href="./signUp.html" style="color:black; text-decoration:none;">
-                                            <span>立即註冊</span></a></li>
-                                </div>
-                            </div>
+    <div class="container">
+        <div class="col-md-7 col-lg-8" style="margin: 0 auto; ">
+            <form>
+                <div class="col-12">
+                    <div style="display: inline-block; border:1px solid rgb(209, 209, 209); padding: 5px;"
+                        class="logAndSign h2">
+                        <li style="color: white; background-color:black; ">
+                            <span>會員登入</span>
+                        </li>
+                        <li><a href="./signUp.html" style="color:black; text-decoration:none;">
+                                <span>立即註冊</span>
+                            </a>
+                        </li>
+                    </div>
+                </div>
 
-                            <div class="col-12">
-                                <button id="btnGoogleLogin" class="w-100 btn btn-lg btn-light" type="button"
-                                    style="border:1px solid black;">使用Google登入</button>
-                            </div>
+                <div class="col-12">
+                    <button id="btnGoogleLogin" class="w-100 btn btn-lg btn-light" type="button"
+                        style="border:1px solid black;">使用Google登入</button>
+                </div>
 
-                            <hr class="my-4">
+                <hr class="my-4">
 
-                            <div class="col-12">
-                                <label for="email" class="form-label">電子郵件地址<span class="text-muted"></span></label>
-                                <input type="email" class="form-control" id="email" placeholder="">
-                                <div class="invalid-feedback" id="">
-                                    請輸入電子信箱地址
-                                </div>
-
-                            </div>
-
-                            <div class="col-12">
-                                <label for="password" class="form-label">密碼 <span class="text-muted"></span></label>
-                                <input type="password" class="form-control" id="password" placeholder="">
-                                <div class="invalid-feedback">
-                                    請輸入密碼
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <p style="text-align: right; color: gray;">
-                                    <a href='#enterEmail' class="popup-btn" style="text-decoration:none;">忘記密碼 ?</a>
-                                </p>
-                            </div>
-
-                            <hr class="my-4">
-
-                        </div>
-                        <div class="col-12">
-                            <button id="btnLogin" class="w-100 btn btn-lg btn-dark" type="button">登入</button>
-                        </div>
-                    </form>
+                <div class="col-12">
+                    <label for="email" class="form-label" style="font-size: 24px;"
+                        style="font-size: 24px;">電子郵件地址</label>
+                    <input type="email" class="form-control" id="email"
+                        style="font-size: 24px; border: 2px solid rgb(179, 178, 178);">
 
                 </div>
-            </div>
+
+                <div class="col-12">
+                    <label for="password" class="form-label" style="font-size: 24px;">密碼</label>
+                    <input type="password" class="form-control" id="password"
+                        style="font-size: 24px; border: 2px solid rgb(179, 178, 178);">
+                    <div class="invalid-feedback">
+                        請輸入密碼
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <p style="text-align: right; color: gray;">
+                        <a href='#enterEmail' class="popup-btn" style="text-decoration:none;">忘記密碼 ?</a>
+                    </p>
+                </div>
+
+                <hr class="my-4">
+                <div class="col-12">
+                    <button id="btnLogin" class="w-100 btn btn-lg btn-dark" type="button"
+                        style="font-size: 24px;">登入</button>
+                </div>
+            </form>
         </div>
     </div>
+
 
 
     <div class="popup-wrap" id="enterEmail">
@@ -195,7 +196,9 @@
                     <div class="modal-body">
                         <input id="inputEnterEmail" type="text" style="font-size: 64px ;">
                     </div>
+
                     <br>
+                    
                     <div class="modal-footer">
                         <button id="btnResetPassword" type="button" class="btn btn-primary"
                             style="font-size: 48px ;">發送郵件</button>
@@ -338,13 +341,14 @@
                 success: function (e) {
                     // 如果e收到'already_reset_password'，代表密碼重置成功
                     // 如果e收到'not_found_email'代表該帳號還沒註冊
-                   console.log(e);
+                    alert('信件發送完成，請到信箱查看');
+                    console.log(e);
                 }
             })
         })
 
 
-        
+
     </script>
 
 </body>
